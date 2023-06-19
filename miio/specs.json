@@ -1,0 +1,2553 @@
+[
+  {
+    "type": "urn:miot-spec-v2:device:television:0000A010:xiaomi-esh1:2",
+    "description": "Television",
+    "services": [
+      {
+        "iid": 1,
+        "type": "urn:miot-spec-v2:service:device-information:00007801:xiaomi-esh1:1",
+        "description": "Device Information",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:miot-spec-v2:property:manufacturer:00000001:xiaomi-esh1:1",
+            "description": "Device Manufacturer",
+            "format": "string",
+            "access": [
+              "read"
+            ]
+          },
+          {
+            "iid": 2,
+            "type": "urn:miot-spec-v2:property:model:00000002:xiaomi-esh1:1",
+            "description": "Device Model",
+            "format": "string",
+            "access": [
+              "read"
+            ]
+          },
+          {
+            "iid": 3,
+            "type": "urn:miot-spec-v2:property:serial-number:00000003:xiaomi-esh1:1",
+            "description": "Device ID",
+            "format": "string",
+            "access": [
+              "read"
+            ]
+          },
+          {
+            "iid": 4,
+            "type": "urn:miot-spec-v2:property:firmware-revision:00000005:xiaomi-esh1:1",
+            "description": "Current Firmware Version",
+            "format": "string",
+            "access": [
+              "read"
+            ]
+          },
+          {
+            "iid": 5,
+            "type": "urn:miot-spec-v2:property:serial-no:000000FF:xiaomi-esh1:1",
+            "description": "Serial Number",
+            "format": "string",
+            "access": [
+              "read",
+              "notify"
+            ]
+          }
+        ]
+      },
+      {
+        "iid": 2,
+        "type": "urn:miot-spec-v2:service:television:0000781B:xiaomi-esh1:1",
+        "description": "Television",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:miot-spec-v2:property:input-control:0000003E:xiaomi-esh1:1",
+            "description": "TV Input Control",
+            "format": "uint8",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ],
+            "value-list": [
+              {
+                "value": 1,
+                "description": "ATV"
+              },
+              {
+                "value": 2,
+                "description": "DTV"
+              },
+              {
+                "value": 3,
+                "description": "AV"
+              },
+              {
+                "value": 4,
+                "description": "HDMI 1"
+              },
+              {
+                "value": 5,
+                "description": "HDMI 2"
+              },
+              {
+                "value": 6,
+                "description": "HDMI 3"
+              }
+            ]
+          },
+          {
+            "iid": 2,
+            "type": "urn:miot-spec-v2:property:sleep-mode:00000028:xiaomi-esh1:2",
+            "description": "Sleep Mode",
+            "format": "bool",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ]
+          }
+        ],
+        "actions": [
+          {
+            "iid": 1,
+            "type": "urn:miot-spec-v2:action:turn-off:00002809:xiaomi-esh1:1",
+            "description": "Turn Off",
+            "in": [],
+            "out": []
+          }
+        ]
+      },
+      {
+        "iid": 3,
+        "type": "urn:miot-spec-v2:service:play-control:0000781D:xiaomi-esh1:1",
+        "description": "Play Control",
+        "actions": [
+          {
+            "iid": 1,
+            "type": "urn:miot-spec-v2:action:play:0000280B:xiaomi-esh1:1",
+            "description": "Play",
+            "in": [],
+            "out": []
+          },
+          {
+            "iid": 2,
+            "type": "urn:miot-spec-v2:action:pause:0000280C:xiaomi-esh1:1",
+            "description": "Pause",
+            "in": [],
+            "out": []
+          }
+        ]
+      },
+      {
+        "iid": 4,
+        "type": "urn:miot-spec-v2:service:speaker:0000781C:xiaomi-esh1:1",
+        "description": "Speaker",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:miot-spec-v2:property:volume:00000013:xiaomi-esh1:1",
+            "description": "Volume",
+            "format": "uint8",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ],
+            "unit": "percentage",
+            "value-range": [
+              0,
+              100,
+              1
+            ]
+          },
+          {
+            "iid": 2,
+            "type": "urn:miot-spec-v2:property:mute:00000040:xiaomi-esh1:1",
+            "description": "Mute",
+            "format": "bool",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ]
+          }
+        ]
+      },
+      {
+        "iid": 5,
+        "type": "urn:miot-spec-v2:service:message-router:0000781E:xiaomi-esh1:1",
+        "description": "Message Router",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:miot-spec-v2:property:request:00000043:xiaomi-esh1:1",
+            "description": "Request",
+            "format": "string",
+            "access": []
+          },
+          {
+            "iid": 2,
+            "type": "urn:miot-spec-v2:property:response:00000044:xiaomi-esh1:1",
+            "description": "Response",
+            "format": "string",
+            "access": []
+          }
+        ],
+        "actions": [
+          {
+            "iid": 1,
+            "type": "urn:miot-spec-v2:action:post:00002810:xiaomi-esh1:1",
+            "description": "Post",
+            "in": [
+              1
+            ],
+            "out": [
+              2
+            ]
+          }
+        ]
+      },
+      {
+        "iid": 6,
+        "type": "urn:miot-spec-v2:service:ble-control:0000783C:xiaomi-esh1:1",
+        "description": "BLE Local Control",
+        "actions": [
+          {
+            "iid": 1,
+            "type": "urn:miot-spec-v2:action:turn-on:00002808:xiaomi-esh1:1",
+            "description": "Turn On",
+            "in": [],
+            "out": []
+          }
+        ]
+      },
+      {
+        "iid": 9,
+        "type": "urn:miot-spec-v2:service:no-disturb:000078BC:xiaomi-esh1:2",
+        "description": "No Disturb",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:miot-spec-v2:property:no-disturb:00000152:xiaomi-esh1:2",
+            "description": "No Disturb",
+            "format": "bool",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ]
+          },
+          {
+            "iid": 2,
+            "type": "urn:miot-spec-v2:property:enable-time-period:00000153:xiaomi-esh1:2",
+            "description": "Enable Time Period",
+            "format": "string",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ]
+          }
+        ]
+      },
+      {
+        "iid": 7,
+        "type": "urn:xiaomi-spec:service:remote-control:00007801:xiaomi-esh1:1",
+        "description": "remote-control",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:xiaomi-spec:property:state-playing:00000001:xiaomi-esh1:1",
+            "description": "state-playing",
+            "format": "bool",
+            "access": [
+              "read",
+              "notify"
+            ]
+          }
+        ],
+        "actions": [
+          {
+            "iid": 1,
+            "type": "urn:xiaomi-spec:action:turn-off:00002801:xiaomi-esh1:1",
+            "description": "turn-off",
+            "in": [],
+            "out": []
+          },
+          {
+            "iid": 2,
+            "type": "urn:xiaomi-spec:action:press-home:00002802:xiaomi-esh1:1",
+            "description": "press-home",
+            "in": [],
+            "out": []
+          },
+          {
+            "iid": 3,
+            "type": "urn:xiaomi-spec:action:press-menu:00002803:xiaomi-esh1:1",
+            "description": "press-menu",
+            "in": [],
+            "out": []
+          },
+          {
+            "iid": 4,
+            "type": "urn:xiaomi-spec:action:press-settings:00002804:xiaomi-esh1:1",
+            "description": "press-settings",
+            "in": [],
+            "out": []
+          },
+          {
+            "iid": 5,
+            "type": "urn:xiaomi-spec:action:press-back:00002805:xiaomi-esh1:1",
+            "description": "press-back",
+            "in": [],
+            "out": []
+          },
+          {
+            "iid": 6,
+            "type": "urn:xiaomi-spec:action:press-left:00002806:xiaomi-esh1:1",
+            "description": "press-left",
+            "in": [],
+            "out": []
+          },
+          {
+            "iid": 7,
+            "type": "urn:xiaomi-spec:action:press-right:00002807:xiaomi-esh1:1",
+            "description": "press-right",
+            "in": [],
+            "out": []
+          },
+          {
+            "iid": 8,
+            "type": "urn:xiaomi-spec:action:press-up:00002808:xiaomi-esh1:1",
+            "description": "press-up",
+            "in": [],
+            "out": []
+          },
+          {
+            "iid": 9,
+            "type": "urn:xiaomi-spec:action:press-down:00002809:xiaomi-esh1:1",
+            "description": "press-down",
+            "in": [],
+            "out": []
+          },
+          {
+            "iid": 10,
+            "type": "urn:xiaomi-spec:action:press-ok:0000280a:xiaomi-esh1:1",
+            "description": "press-ok",
+            "in": [],
+            "out": []
+          },
+          {
+            "iid": 11,
+            "type": "urn:xiaomi-spec:action:press-volume-down:0000280b:xiaomi-esh1:1",
+            "description": "press-volume-down",
+            "in": [],
+            "out": []
+          },
+          {
+            "iid": 12,
+            "type": "urn:xiaomi-spec:action:press-volume-up:0000280c:xiaomi-esh1:1",
+            "description": "press-volume-up",
+            "in": [],
+            "out": []
+          },
+          {
+            "iid": 14,
+            "type": "urn:xiaomi-spec:action:press-play:0000280e:xiaomi-esh1:1",
+            "description": "press-play",
+            "in": [],
+            "out": []
+          },
+          {
+            "iid": 15,
+            "type": "urn:xiaomi-spec:action:press-pause:0000280f:xiaomi-esh1:1",
+            "description": "press-pause",
+            "in": [],
+            "out": []
+          },
+          {
+            "iid": 16,
+            "type": "urn:xiaomi-spec:action:press-play-pause:00002810:xiaomi-esh1:1",
+            "description": "press-play-pause",
+            "in": [],
+            "out": []
+          }
+        ]
+      },
+      {
+        "iid": 8,
+        "type": "urn:xiaomi-spec:service:speaker-mode:00007802:xiaomi-esh1:1",
+        "description": "speaker-mode",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:xiaomi-spec:property:is-on:00000001:xiaomi-esh1:1",
+            "description": "is-on",
+            "format": "bool",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ]
+          }
+        ],
+        "actions": [
+          {
+            "iid": 1,
+            "type": "urn:xiaomi-spec:action:turn-mode-on:00002801:xiaomi-esh1:1",
+            "description": "turn-mode-on",
+            "in": [],
+            "out": []
+          },
+          {
+            "iid": 2,
+            "type": "urn:xiaomi-spec:action:turn-mode-off:00002802:xiaomi-esh1:1",
+            "description": "turn-mode-off",
+            "in": [],
+            "out": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "urn:miot-spec-v2:device:air-conditioner:0000A004:xiaomi-c16:1",
+    "description": "Air Conditioner",
+    "services": [
+      {
+        "iid": 1,
+        "type": "urn:miot-spec-v2:service:device-information:00007801:xiaomi-c16:1",
+        "description": "Device Information",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:miot-spec-v2:property:manufacturer:00000001:xiaomi-c16:1",
+            "description": "Device Manufacturer",
+            "format": "string",
+            "access": [
+              "read"
+            ]
+          },
+          {
+            "iid": 2,
+            "type": "urn:miot-spec-v2:property:model:00000002:xiaomi-c16:1",
+            "description": "Device Model",
+            "format": "string",
+            "access": [
+              "read"
+            ]
+          },
+          {
+            "iid": 3,
+            "type": "urn:miot-spec-v2:property:serial-number:00000003:xiaomi-c16:1",
+            "description": "Device Serial Number",
+            "format": "string",
+            "access": [
+              "read"
+            ]
+          },
+          {
+            "iid": 4,
+            "type": "urn:miot-spec-v2:property:firmware-revision:00000005:xiaomi-c16:1",
+            "description": "Current Firmware Version",
+            "format": "string",
+            "access": [
+              "read"
+            ]
+          },
+          {
+            "iid": 5,
+            "type": "urn:miot-spec-v2:property:serial-no:000000FF:xiaomi-c16:1",
+            "description": "Serial Number",
+            "format": "string",
+            "access": [
+              "read",
+              "notify"
+            ]
+          }
+        ]
+      },
+      {
+        "iid": 2,
+        "type": "urn:miot-spec-v2:service:air-conditioner:0000780F:xiaomi-c16:1",
+        "description": "Air Conditioner",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:miot-spec-v2:property:on:00000006:xiaomi-c16:1",
+            "description": "Switch Status",
+            "format": "bool",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ]
+          },
+          {
+            "iid": 2,
+            "type": "urn:miot-spec-v2:property:mode:00000008:xiaomi-c16:1",
+            "description": "Mode",
+            "format": "uint8",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ],
+            "unit": "none",
+            "value-list": [
+              {
+                "value": 2,
+                "description": "Cool"
+              },
+              {
+                "value": 3,
+                "description": "Dry"
+              },
+              {
+                "value": 4,
+                "description": "Fan"
+              },
+              {
+                "value": 5,
+                "description": "Heat"
+              }
+            ]
+          },
+          {
+            "iid": 3,
+            "type": "urn:miot-spec-v2:property:fault:00000009:xiaomi-c16:1",
+            "description": "Device Fault",
+            "format": "string",
+            "access": [
+              "read",
+              "notify"
+            ],
+            "unit": "none"
+          },
+          {
+            "iid": 4,
+            "type": "urn:miot-spec-v2:property:target-temperature:00000021:xiaomi-c16:1",
+            "description": "Target Temperature",
+            "format": "float",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ],
+            "unit": "celsius",
+            "value-range": [
+              16,
+              31,
+              0.5
+            ]
+          },
+          {
+            "iid": 7,
+            "type": "urn:miot-spec-v2:property:eco:00000024:xiaomi-c16:1",
+            "description": "ECO",
+            "format": "bool",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ]
+          },
+          {
+            "iid": 9,
+            "type": "urn:miot-spec-v2:property:heater:00000026:xiaomi-c16:1",
+            "description": "Heater",
+            "format": "bool",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ]
+          },
+          {
+            "iid": 10,
+            "type": "urn:miot-spec-v2:property:dryer:00000027:xiaomi-c16:1",
+            "description": "Dryer",
+            "format": "bool",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ]
+          },
+          {
+            "iid": 11,
+            "type": "urn:miot-spec-v2:property:sleep-mode:00000028:xiaomi-c16:1",
+            "description": "Sleep Mode",
+            "format": "bool",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ]
+          },
+          {
+            "iid": 14,
+            "type": "urn:miot-spec-v2:property:target-humidity:00000022:xiaomi-c16:1",
+            "description": "Target Humidity",
+            "format": "uint8",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ],
+            "unit": "percentage",
+            "value-range": [
+              0,
+              100,
+              1
+            ]
+          },
+          {
+            "iid": 15,
+            "type": "urn:miot-spec-v2:property:un-straight-blowing:00000100:xiaomi-c16:1",
+            "description": "Unstraight Blowing",
+            "format": "bool",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ]
+          }
+        ]
+      },
+      {
+        "iid": 3,
+        "type": "urn:miot-spec-v2:service:fan-control:00007809:xiaomi-c16:1",
+        "description": "Fan Control",
+        "properties": [
+          {
+            "iid": 2,
+            "type": "urn:miot-spec-v2:property:fan-level:00000016:xiaomi-c16:1",
+            "description": "Fan Level",
+            "format": "uint8",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ],
+            "unit": "none",
+            "value-list": [
+              {
+                "value": 0,
+                "description": "Auto"
+              },
+              {
+                "value": 1,
+                "description": "Level1"
+              },
+              {
+                "value": 2,
+                "description": "Level2"
+              },
+              {
+                "value": 3,
+                "description": "Level3"
+              },
+              {
+                "value": 4,
+                "description": "Level4"
+              },
+              {
+                "value": 5,
+                "description": "Level5"
+              },
+              {
+                "value": 6,
+                "description": "Level6"
+              },
+              {
+                "value": 7,
+                "description": "Level7"
+              }
+            ]
+          },
+          {
+            "iid": 4,
+            "type": "urn:miot-spec-v2:property:vertical-swing:00000018:xiaomi-c16:1",
+            "description": "Vertical Swing",
+            "format": "bool",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ]
+          }
+        ]
+      },
+      {
+        "iid": 4,
+        "type": "urn:miot-spec-v2:service:environment:0000780A:xiaomi-c16:1",
+        "description": "Environment",
+        "properties": [
+          {
+            "iid": 7,
+            "type": "urn:miot-spec-v2:property:temperature:00000020:xiaomi-c16:1",
+            "description": "Temperature",
+            "format": "float",
+            "access": [
+              "read",
+              "notify"
+            ],
+            "unit": "celsius",
+            "value-range": [
+              -30,
+              100,
+              0.1
+            ]
+          },
+          {
+            "iid": 9,
+            "type": "urn:miot-spec-v2:property:relative-humidity:0000000C:xiaomi-c16:1",
+            "description": "Relative Humidity",
+            "format": "uint8",
+            "access": [
+              "read",
+              "notify"
+            ],
+            "unit": "percentage",
+            "value-range": [
+              0,
+              100,
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "iid": 5,
+        "type": "urn:miot-spec-v2:service:alarm:00007804:xiaomi-c16:1",
+        "description": "Alarm",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:miot-spec-v2:property:alarm:00000012:xiaomi-c16:1",
+            "description": "Alarm",
+            "format": "bool",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ]
+          }
+        ]
+      },
+      {
+        "iid": 6,
+        "type": "urn:miot-spec-v2:service:indicator-light:00007803:xiaomi-c16:1",
+        "description": "Indicator Light",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:miot-spec-v2:property:on:00000006:xiaomi-c16:1",
+            "description": "Switch Status",
+            "format": "bool",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ]
+          },
+          {
+            "iid": 2,
+            "type": "urn:miot-spec-v2:property:brightness:0000000D:xiaomi-c16:1",
+            "description": "Brightness",
+            "format": "uint8",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ],
+            "unit": "lux",
+            "value-list": [
+              {
+                "value": 0,
+                "description": "Auto"
+              },
+              {
+                "value": 1,
+                "description": "Medium"
+              },
+              {
+                "value": 2,
+                "description": "High"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "iid": 8,
+        "type": "urn:xiaomi-spec:service:electricity:00007802:xiaomi-c16:1",
+        "description": "电量管理",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:xiaomi-spec:property:electricity:00000001:xiaomi-c16:1",
+            "description": "耗电量",
+            "format": "float",
+            "access": [
+              "read",
+              "notify"
+            ],
+            "unit": "none",
+            "value-range": [
+              0,
+              999999.999999,
+              0.000001
+            ]
+          },
+          {
+            "iid": 3,
+            "type": "urn:xiaomi-spec:property:elec-count:00000003:xiaomi-c16:1",
+            "description": "耗电量本次计数",
+            "format": "uint16",
+            "access": [
+              "read",
+              "notify"
+            ],
+            "value-range": [
+              0,
+              65535,
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "iid": 9,
+        "type": "urn:xiaomi-spec:service:maintenance:00007803:xiaomi-c16:1",
+        "description": "维护管理",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:xiaomi-spec:property:clean:00000001:xiaomi-c16:1",
+            "description": "自清洁开关",
+            "format": "string",
+            "access": [
+              "read",
+              "notify",
+              "write"
+            ]
+          },
+          {
+            "iid": 2,
+            "type": "urn:xiaomi-spec:property:examine:00000002:xiaomi-c16:1",
+            "description": "机组体检开关",
+            "format": "string",
+            "access": [
+              "read",
+              "notify",
+              "write"
+            ]
+          },
+          {
+            "iid": 3,
+            "type": "urn:xiaomi-spec:property:error:00000003:xiaomi-c16:1",
+            "description": "故障",
+            "format": "string",
+            "access": [
+              "notify"
+            ]
+          },
+          {
+            "iid": 5,
+            "type": "urn:xiaomi-spec:property:running-duration:00000005:xiaomi-c16:1",
+            "description": "累计运行时长",
+            "format": "float",
+            "access": [
+              "read",
+              "notify"
+            ],
+            "value-range": [
+              0,
+              876000,
+              0.1
+            ]
+          }
+        ],
+        "events": [
+          {
+            "iid": 1,
+            "type": "urn:xiaomi-spec:event:filtertest:00005001:xiaomi-c16:1",
+            "description": "通知滤网脏堵/解除",
+            "arguments": []
+          },
+          {
+            "iid": 2,
+            "type": "urn:xiaomi-spec:event:error:00005002:xiaomi-c16:1",
+            "description": "故障事件上报",
+            "arguments": [
+              3
+            ]
+          },
+          {
+            "iid": 3,
+            "type": "urn:xiaomi-spec:event:examine-result:00005003:xiaomi-c16:1",
+            "description": "通知体检进程＆结果",
+            "arguments": [
+              2
+            ]
+          },
+          {
+            "iid": 4,
+            "type": "urn:xiaomi-spec:event:clean-result:00005004:xiaomi-c16:1",
+            "description": "通知自清洁进程\u0026结果",
+            "arguments": [
+              1
+            ]
+          },
+          {
+            "iid": 5,
+            "type": "urn:xiaomi-spec:event:button-pressed:00005005:xiaomi-c16:1",
+            "description": "机内按键1按下(开关开, 自动模式开机)",
+            "arguments": []
+          },
+          {
+            "iid": 6,
+            "type": "urn:xiaomi-spec:event:button-released:00005006:xiaomi-c16:1",
+            "description": "机内按键1释放(开关关, 关机)",
+            "arguments": []
+          },
+          {
+            "iid": 8,
+            "type": "urn:xiaomi-spec:event:running-duration:00005008:xiaomi-c16:1",
+            "description": "累计运行时长",
+            "arguments": [
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "iid": 10,
+        "type": "urn:xiaomi-spec:service:enhance:00007804:xiaomi-c16:1",
+        "description": "增强",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:xiaomi-spec:property:fan-percent:00000001:xiaomi-c16:1",
+            "description": "风速百分比",
+            "format": "uint8",
+            "access": [
+              "read",
+              "notify",
+              "write"
+            ],
+            "value-range": [
+              1,
+              101,
+              1
+            ]
+          },
+          {
+            "iid": 3,
+            "type": "urn:xiaomi-spec:property:timer:00000003:xiaomi-c16:1",
+            "description": "timer",
+            "format": "string",
+            "access": [
+              "read",
+              "notify",
+              "write"
+            ],
+            "unit": "none"
+          },
+          {
+            "iid": 6,
+            "type": "urn:xiaomi-spec:property:humidity-range:00000005:xiaomi-c16:1",
+            "description": "humidity-range",
+            "format": "string",
+            "access": [
+              "read",
+              "notify"
+            ],
+            "unit": "none"
+          },
+          {
+            "iid": 9,
+            "type": "urn:xiaomi-spec:property:temperature-humidity:00000006:xiaomi-c16:1",
+            "description": "temperature-humidity",
+            "format": "float",
+            "access": [
+              "read",
+              "notify"
+            ],
+            "unit": "celsius",
+            "value-range": [
+              -30,
+              100,
+              0.1
+            ]
+          }
+        ]
+      },
+      {
+        "iid": 11,
+        "type": "urn:xiaomi-spec:service:iot-linkage:00007801:xiaomi-c16:1",
+        "description": "iot-linkage",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:xiaomi-spec:property:iot-temp:00000001:xiaomi-c16:1",
+            "description": "iot-temp",
+            "format": "float",
+            "access": [
+              "read",
+              "notify"
+            ],
+            "unit": "celsius",
+            "value-range": [
+              -50,
+              100,
+              0.1
+            ]
+          },
+          {
+            "iid": 5,
+            "type": "urn:xiaomi-spec:property:temp-ctrl:00000005:xiaomi-c16:1",
+            "description": "temp-ctrl",
+            "format": "bool",
+            "access": [
+              "read",
+              "notify",
+              "write"
+            ],
+            "unit": "none"
+          },
+          {
+            "iid": 6,
+            "type": "urn:xiaomi-spec:property:smart-sleep-ctrl:00000006:xiaomi-c16:1",
+            "description": "smart-sleep-ctrl",
+            "format": "bool",
+            "access": [
+              "read",
+              "notify",
+              "write"
+            ],
+            "unit": "none"
+          }
+        ]
+      },
+      {
+        "iid": 12,
+        "type": "urn:xiaomi-spec:service:machine-state:00007805:xiaomi-c16:1",
+        "description": "machine-state",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:xiaomi-spec:property:indoor-pipe-temp:00000001:xiaomi-c16:1",
+            "description": "indoor-pipe-temp",
+            "format": "float",
+            "access": [
+              "read",
+              "notify"
+            ],
+            "unit": "celsius",
+            "value-range": [
+              -100,
+              100,
+              0.1
+            ]
+          },
+          {
+            "iid": 3,
+            "type": "urn:xiaomi-spec:property:indoor-fan-speed:00000003:xiaomi-c16:1",
+            "description": "indoor-fan-speed",
+            "format": "uint16",
+            "access": [
+              "read",
+              "notify"
+            ],
+            "unit": "none",
+            "value-range": [
+              0,
+              2000,
+              1
+            ]
+          },
+          {
+            "iid": 4,
+            "type": "urn:xiaomi-spec:property:real-heater-switch:00000002:xiaomi-c16:1",
+            "description": "real-heater-switch",
+            "format": "bool",
+            "access": [
+              "read",
+              "notify"
+            ],
+            "unit": "none"
+          },
+          {
+            "iid": 5,
+            "type": "urn:xiaomi-spec:property:realindoor-fan-lever:00000004:xiaomi-c16:1",
+            "description": "realindoor-fan-lever",
+            "format": "uint8",
+            "access": [
+              "read",
+              "notify"
+            ],
+            "unit": "none",
+            "value-list": [
+              {
+                "value": 0,
+                "description": "Level 0"
+              },
+              {
+                "value": 1,
+                "description": "Level 1"
+              },
+              {
+                "value": 2,
+                "description": "Level 2"
+              },
+              {
+                "value": 3,
+                "description": "Level 3"
+              },
+              {
+                "value": 4,
+                "description": "Level 4"
+              },
+              {
+                "value": 5,
+                "description": "Level 5"
+              },
+              {
+                "value": 6,
+                "description": "Level 6"
+              },
+              {
+                "value": 7,
+                "description": "Level 7"
+              },
+              {
+                "value": 8,
+                "description": "Level 8"
+              },
+              {
+                "value": 9,
+                "description": "Level 9"
+              }
+            ]
+          },
+          {
+            "iid": 7,
+            "type": "urn:xiaomi-spec:property:outdoor-temp:00000006:xiaomi-c16:1",
+            "description": "outdoor-temp",
+            "format": "float",
+            "access": [
+              "read",
+              "notify"
+            ],
+            "unit": "celsius",
+            "value-range": [
+              -100,
+              100,
+              0.1
+            ]
+          },
+          {
+            "iid": 8,
+            "type": "urn:xiaomi-spec:property:outdoor-pipe-temp:00000005:xiaomi-c16:1",
+            "description": "outdoor-pipe-temp",
+            "format": "float",
+            "access": [
+              "read",
+              "notify"
+            ],
+            "unit": "celsius",
+            "value-range": [
+              -100,
+              100,
+              0.1
+            ]
+          },
+          {
+            "iid": 9,
+            "type": "urn:xiaomi-spec:property:outdoor-exhaust-temp:00000007:xiaomi-c16:1",
+            "description": "outdoor-exhaust-temp",
+            "format": "float",
+            "access": [
+              "read",
+              "notify"
+            ],
+            "unit": "celsius",
+            "value-range": [
+              -100,
+              200,
+              0.1
+            ]
+          },
+          {
+            "iid": 10,
+            "type": "urn:xiaomi-spec:property:outdoor-fan-lever:00000008:xiaomi-c16:1",
+            "description": "outdoor-fan-lever",
+            "format": "uint8",
+            "access": [
+              "read",
+              "notify"
+            ],
+            "unit": "none",
+            "value-list": [
+              {
+                "value": 0,
+                "description": "Level 0"
+              },
+              {
+                "value": 1,
+                "description": "Level 1"
+              },
+              {
+                "value": 2,
+                "description": "Level 2"
+              },
+              {
+                "value": 3,
+                "description": "Level 3"
+              },
+              {
+                "value": 4,
+                "description": "Level 4"
+              },
+              {
+                "value": 5,
+                "description": "Level 5"
+              },
+              {
+                "value": 6,
+                "description": "Level 6"
+              },
+              {
+                "value": 7,
+                "description": "Level 7"
+              },
+              {
+                "value": 8,
+                "description": "Level 8"
+              },
+              {
+                "value": 9,
+                "description": "Level 9"
+              }
+            ]
+          },
+          {
+            "iid": 11,
+            "type": "urn:xiaomi-spec:property:compressor-frequency:00000009:xiaomi-c16:1",
+            "description": "compressor-frequency",
+            "format": "float",
+            "access": [
+              "read",
+              "notify"
+            ],
+            "unit": "none",
+            "value-range": [
+              0,
+              200,
+              0.1
+            ]
+          },
+          {
+            "iid": 12,
+            "type": "urn:xiaomi-spec:property:fourway-valve-switch:0000000a:xiaomi-c16:1",
+            "description": "fourway-valve-switch",
+            "format": "bool",
+            "access": [
+              "read",
+              "notify"
+            ],
+            "unit": "none"
+          },
+          {
+            "iid": 13,
+            "type": "urn:xiaomi-spec:property:outdoor--current:0000000b:xiaomi-c16:1",
+            "description": "outdoor--current",
+            "format": "float",
+            "access": [
+              "read",
+              "notify"
+            ],
+            "unit": "none",
+            "value-range": [
+              0,
+              100,
+              0.1
+            ]
+          },
+          {
+            "iid": 14,
+            "type": "urn:xiaomi-spec:property:outdoor-m-voltage:0000000c:xiaomi-c16:1",
+            "description": "outdoor-m-voltage",
+            "format": "float",
+            "access": [
+              "read",
+              "notify"
+            ],
+            "unit": "none",
+            "value-range": [
+              0,
+              500,
+              0.1
+            ]
+          },
+          {
+            "iid": 15,
+            "type": "urn:xiaomi-spec:property:expansion-valve:0000000d:xiaomi-c16:1",
+            "description": "expansion-valve",
+            "format": "uint16",
+            "access": [
+              "read",
+              "notify"
+            ],
+            "unit": "none",
+            "value-range": [
+              0,
+              1000,
+              1
+            ]
+          },
+          {
+            "iid": 16,
+            "type": "urn:xiaomi-spec:property:longitude-latitude:0000000e:xiaomi-c16:1",
+            "description": "longitude-latitude",
+            "format": "string",
+            "access": [
+              "read",
+              "notify",
+              "write"
+            ],
+            "unit": "none"
+          },
+          {
+            "iid": 19,
+            "type": "urn:xiaomi-spec:property:ambient-light:00000011:xiaomi-c16:1",
+            "description": "ambient-light",
+            "format": "uint32",
+            "access": [
+              "read",
+              "notify"
+            ],
+            "value-range": [
+              0,
+              9999,
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "iid": 13,
+        "type": "urn:xiaomi-spec:service:fault-value:00007806:xiaomi-c16:1",
+        "description": "fault-value",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:xiaomi-spec:property:fault-value:00000001:xiaomi-c16:1",
+            "description": "fault-value",
+            "format": "int16",
+            "access": [
+              "read",
+              "notify"
+            ],
+            "unit": "none",
+            "value-list": [
+              {
+                "value": 0,
+                "description": "No Failure"
+              },
+              {
+                "value": 4,
+                "description": "F2.4"
+              },
+              {
+                "value": 5,
+                "description": "F3.2"
+              },
+              {
+                "value": 6,
+                "description": "P1"
+              },
+              {
+                "value": 7,
+                "description": "P2.1"
+              },
+              {
+                "value": 8,
+                "description": "P2.2"
+              },
+              {
+                "value": 9,
+                "description": "P2.3"
+              },
+              {
+                "value": 10,
+                "description": "P2.4"
+              },
+              {
+                "value": 11,
+                "description": "P2.5"
+              },
+              {
+                "value": 12,
+                "description": "P4"
+              },
+              {
+                "value": 13,
+                "description": "P5"
+              },
+              {
+                "value": 14,
+                "description": "P6"
+              },
+              {
+                "value": 15,
+                "description": "P8"
+              },
+              {
+                "value": 16,
+                "description": "PA"
+              },
+              {
+                "value": 17,
+                "description": "PC"
+              },
+              {
+                "value": 18,
+                "description": "U2"
+              },
+              {
+                "value": 19,
+                "description": "U3"
+              },
+              {
+                "value": 20,
+                "description": "U4"
+              },
+              {
+                "value": 21,
+                "description": "U5"
+              },
+              {
+                "value": 22,
+                "description": "U6.1"
+              },
+              {
+                "value": 23,
+                "description": "U6.2"
+              },
+              {
+                "value": 24,
+                "description": "U8"
+              },
+              {
+                "value": 25,
+                "description": "U0"
+              },
+              {
+                "value": 26,
+                "description": "C1"
+              },
+              {
+                "value": 27,
+                "description": "C2"
+              },
+              {
+                "value": 28,
+                "description": "C3"
+              },
+              {
+                "value": 29,
+                "description": "C4"
+              },
+              {
+                "value": 30,
+                "description": "C5"
+              },
+              {
+                "value": -4,
+                "description": "F2.4  CLEAR"
+              },
+              {
+                "value": -5,
+                "description": "F3.2 CLEAR"
+              },
+              {
+                "value": -6,
+                "description": "P1 CLEAR"
+              },
+              {
+                "value": -7,
+                "description": "P2.1 CLEAR"
+              },
+              {
+                "value": -8,
+                "description": "P2.2  CLEAR"
+              },
+              {
+                "value": -9,
+                "description": "P2.3 CLEAR"
+              },
+              {
+                "value": -10,
+                "description": "P2.4 CLEAR"
+              },
+              {
+                "value": -11,
+                "description": "P2.5 CLEAR"
+              },
+              {
+                "value": -12,
+                "description": "P4 CLEAR"
+              },
+              {
+                "value": -13,
+                "description": "P5 CLEAR"
+              },
+              {
+                "value": -14,
+                "description": "P6 CLEAR"
+              },
+              {
+                "value": -15,
+                "description": "P8 CLEAR"
+              },
+              {
+                "value": -16,
+                "description": "PA CLEAR"
+              },
+              {
+                "value": -17,
+                "description": "PC CLEAR"
+              },
+              {
+                "value": -18,
+                "description": "U2 CLEAR"
+              },
+              {
+                "value": -19,
+                "description": "U3 CLEAR"
+              },
+              {
+                "value": -20,
+                "description": "U4  CLEAR"
+              },
+              {
+                "value": -21,
+                "description": "U5 CLEAR"
+              },
+              {
+                "value": -22,
+                "description": "U6.1 CLEAR"
+              },
+              {
+                "value": -23,
+                "description": "U6.2  CLEAR"
+              },
+              {
+                "value": -24,
+                "description": "U8 CLEAR"
+              },
+              {
+                "value": -25,
+                "description": "U0 CLEAR"
+              },
+              {
+                "value": -26,
+                "description": "C1 CLEAR"
+              },
+              {
+                "value": -27,
+                "description": "C2 CLEAR"
+              },
+              {
+                "value": -28,
+                "description": "C3 CLEAR"
+              },
+              {
+                "value": -29,
+                "description": "C4 CLEAR"
+              },
+              {
+                "value": -30,
+                "description": "C5 CLEAR"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "urn:miot-spec-v2:device:water-purifier:0000A013:yunmi-lx3:1",
+    "description": "Water Purifier",
+    "services": [
+      {
+        "iid": 1,
+        "type": "urn:miot-spec-v2:service:device-information:00007801:yunmi-lx3:1",
+        "description": "Device Information",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:miot-spec-v2:property:manufacturer:00000001:yunmi-lx3:1",
+            "description": "Device Manufacturer",
+            "format": "string",
+            "access": [
+              "read"
+            ]
+          },
+          {
+            "iid": 2,
+            "type": "urn:miot-spec-v2:property:model:00000002:yunmi-lx3:1",
+            "description": "Device Model",
+            "format": "string",
+            "access": [
+              "read"
+            ]
+          },
+          {
+            "iid": 3,
+            "type": "urn:miot-spec-v2:property:serial-number:00000003:yunmi-lx3:1",
+            "description": "Device Serial Number",
+            "format": "string",
+            "access": [
+              "read"
+            ]
+          },
+          {
+            "iid": 4,
+            "type": "urn:miot-spec-v2:property:firmware-revision:00000005:yunmi-lx3:1",
+            "description": "Current Firmware Version",
+            "format": "string",
+            "access": [
+              "read"
+            ]
+          }
+        ]
+      },
+      {
+        "iid": 2,
+        "type": "urn:miot-spec-v2:service:water-purifier:00007821:yunmi-lx3:1",
+        "description": "Water Purifier",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:miot-spec-v2:property:status:00000007:yunmi-lx3:1",
+            "description": "Status",
+            "format": "uint8",
+            "access": [
+              "read",
+              "notify"
+            ],
+            "value-list": [
+              {
+                "value": 1,
+                "description": "Idle"
+              },
+              {
+                "value": 2,
+                "description": "Purifying"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "iid": 3,
+        "type": "urn:miot-spec-v2:service:tds-sensor:0000780D:yunmi-lx3:1",
+        "description": "Total Dissolved Solids Sensor",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:miot-spec-v2:property:tds-in:0000002C:yunmi-lx3:1",
+            "description": "Total Dissolved Solids for Input Water",
+            "format": "uint16",
+            "access": [
+              "read",
+              "notify"
+            ],
+            "value-range": [
+              0,
+              10000,
+              1
+            ]
+          },
+          {
+            "iid": 2,
+            "type": "urn:miot-spec-v2:property:tds-out:0000002D:yunmi-lx3:1",
+            "description": "Total Dissolved Solids for Output Water",
+            "format": "uint16",
+            "access": [
+              "read",
+              "notify"
+            ],
+            "value-range": [
+              0,
+              10000,
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "iid": 4,
+        "type": "urn:miot-spec-v2:service:filter:0000780B:yunmi-lx3:1",
+        "description": "PP Filter Service",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:miot-spec-v2:property:filter-used-time:00000048:yunmi-lx3:1",
+            "description": "Filter Used Time",
+            "format": "uint16",
+            "access": [
+              "read"
+            ],
+            "unit": "hours",
+            "value-range": [
+              0,
+              65535,
+              1
+            ]
+          },
+          {
+            "iid": 2,
+            "type": "urn:miot-spec-v2:property:filter-used-flow:0000004A:yunmi-lx3:1",
+            "description": "Filter Used Flow",
+            "format": "uint16",
+            "access": [
+              "read"
+            ],
+            "value-range": [
+              0,
+              65535,
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "iid": 5,
+        "type": "urn:miot-spec-v2:service:filter:0000780B:yunmi-lx3:1",
+        "description": "C1 Filter Service",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:miot-spec-v2:property:filter-used-time:00000048:yunmi-lx3:1",
+            "description": "Filter Used Time",
+            "format": "uint16",
+            "access": [
+              "read"
+            ],
+            "unit": "hours",
+            "value-range": [
+              0,
+              65535,
+              1
+            ]
+          },
+          {
+            "iid": 2,
+            "type": "urn:miot-spec-v2:property:filter-used-flow:0000004A:yunmi-lx3:1",
+            "description": "Filter Used Flow",
+            "format": "uint16",
+            "access": [
+              "read"
+            ],
+            "value-range": [
+              0,
+              65535,
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "iid": 6,
+        "type": "urn:miot-spec-v2:service:filter:0000780B:yunmi-lx3:1",
+        "description": "C2 Filter Service",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:miot-spec-v2:property:filter-used-time:00000048:yunmi-lx3:1",
+            "description": "Filter Used Time",
+            "format": "uint16",
+            "access": [
+              "read"
+            ],
+            "unit": "hours",
+            "value-range": [
+              0,
+              65535,
+              1
+            ]
+          },
+          {
+            "iid": 2,
+            "type": "urn:miot-spec-v2:property:filter-used-flow:0000004A:yunmi-lx3:1",
+            "description": "Filter Used Flow",
+            "format": "uint16",
+            "access": [
+              "read"
+            ],
+            "value-range": [
+              0,
+              65535,
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "iid": 7,
+        "type": "urn:miot-spec-v2:service:filter:0000780B:yunmi-lx3:1",
+        "description": "RO Filter Service",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:miot-spec-v2:property:filter-used-time:00000048:yunmi-lx3:1",
+            "description": "Filter Used Time",
+            "format": "uint16",
+            "access": [
+              "read"
+            ],
+            "unit": "hours",
+            "value-range": [
+              0,
+              65535,
+              1
+            ]
+          },
+          {
+            "iid": 2,
+            "type": "urn:miot-spec-v2:property:filter-used-flow:0000004A:yunmi-lx3:1",
+            "description": "Filter Used Flow",
+            "format": "uint16",
+            "access": [
+              "read"
+            ],
+            "value-range": [
+              0,
+              65535,
+              1
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "urn:miot-spec-v2:device:fan:0000A005:dmaker-p28:1",
+    "description": "Fan",
+    "services": [
+      {
+        "iid": 1,
+        "type": "urn:miot-spec-v2:service:device-information:00007801:dmaker-p28:1",
+        "description": "Device Information",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:miot-spec-v2:property:manufacturer:00000001:dmaker-p28:1",
+            "description": "Device Manufacturer",
+            "format": "string",
+            "access": [
+              "read"
+            ]
+          },
+          {
+            "iid": 2,
+            "type": "urn:miot-spec-v2:property:model:00000002:dmaker-p28:1",
+            "description": "Device Model",
+            "format": "string",
+            "access": [
+              "read"
+            ]
+          },
+          {
+            "iid": 3,
+            "type": "urn:miot-spec-v2:property:serial-number:00000003:dmaker-p28:1",
+            "description": "Device Serial Number",
+            "format": "string",
+            "access": [
+              "read"
+            ]
+          },
+          {
+            "iid": 4,
+            "type": "urn:miot-spec-v2:property:firmware-revision:00000005:dmaker-p28:1",
+            "description": "Current Firmware Version",
+            "format": "string",
+            "access": [
+              "read"
+            ]
+          }
+        ]
+      },
+      {
+        "iid": 2,
+        "type": "urn:miot-spec-v2:service:fan:00007808:dmaker-p28:1",
+        "description": "Fan",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:miot-spec-v2:property:on:00000006:dmaker-p28:1",
+            "description": "Switch Status",
+            "format": "bool",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ]
+          },
+          {
+            "iid": 2,
+            "type": "urn:miot-spec-v2:property:fan-level:00000016:dmaker-p28:1",
+            "description": "Gear Fan Level ",
+            "format": "uint8",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ],
+            "unit": "none",
+            "value-list": [
+              {
+                "value": 1,
+                "description": "Level1"
+              },
+              {
+                "value": 2,
+                "description": "Level2"
+              },
+              {
+                "value": 3,
+                "description": "Level3"
+              },
+              {
+                "value": 4,
+                "description": "Level4"
+              }
+            ]
+          },
+          {
+            "iid": 3,
+            "type": "urn:miot-spec-v2:property:mode:00000008:dmaker-p28:1",
+            "description": "Mode",
+            "format": "uint8",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ],
+            "value-list": [
+              {
+                "value": 0,
+                "description": "Straight Wind"
+              },
+              {
+                "value": 1,
+                "description": "Natural Wind"
+              },
+              {
+                "value": 2,
+                "description": "Smart"
+              },
+              {
+                "value": 3,
+                "description": "Sleep"
+              }
+            ]
+          },
+          {
+            "iid": 4,
+            "type": "urn:miot-spec-v2:property:horizontal-swing:00000017:dmaker-p28:1",
+            "description": "Horizontal Swing",
+            "format": "bool",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ]
+          },
+          {
+            "iid": 5,
+            "type": "urn:miot-spec-v2:property:horizontal-swing-included-angle:0000011B:dmaker-p28:1",
+            "description": "Horizontal Swing Included Angle",
+            "format": "uint16",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ],
+            "value-list": [
+              {
+                "value": 30,
+                "description": "30"
+              },
+              {
+                "value": 60,
+                "description": "60"
+              },
+              {
+                "value": 90,
+                "description": "90"
+              },
+              {
+                "value": 120,
+                "description": "120"
+              },
+              {
+                "value": 150,
+                "description": "150"
+              }
+            ]
+          },
+          {
+            "iid": 7,
+            "type": "urn:miot-spec-v2:property:vertical-swing:00000018:dmaker-p28:1",
+            "description": "Vertical Swing",
+            "format": "bool",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ]
+          },
+          {
+            "iid": 8,
+            "type": "urn:miot-spec-v2:property:vertical-swing-included-angle:0000011A:dmaker-p28:1",
+            "description": "Vertical Swing Included Angle",
+            "format": "uint8",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ],
+            "value-list": [
+              {
+                "value": 30,
+                "description": "30"
+              },
+              {
+                "value": 60,
+                "description": "60"
+              },
+              {
+                "value": 90,
+                "description": "90"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "iid": 4,
+        "type": "urn:miot-spec-v2:service:indicator-light:00007803:dmaker-p28:1",
+        "description": "Indicator Light",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:miot-spec-v2:property:on:00000006:dmaker-p28:1",
+            "description": "Switch Status",
+            "format": "bool",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ]
+          }
+        ]
+      },
+      {
+        "iid": 5,
+        "type": "urn:miot-spec-v2:service:alarm:00007804:dmaker-p28:1",
+        "description": "Alarm",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:miot-spec-v2:property:alarm:00000012:dmaker-p28:1",
+            "description": "Alarm",
+            "format": "bool",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ]
+          }
+        ]
+      },
+      {
+        "iid": 7,
+        "type": "urn:miot-spec-v2:service:physical-controls-locked:00007807:dmaker-p28:1",
+        "description": "Physical Control Locked",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:miot-spec-v2:property:physical-controls-locked:0000001D:dmaker-p28:1",
+            "description": "Physical Control Locked",
+            "format": "bool",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ]
+          }
+        ]
+      },
+      {
+        "iid": 9,
+        "type": "urn:miot-spec-v2:service:environment:0000780A:dmaker-p28:1",
+        "description": "Environment",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:miot-spec-v2:property:temperature:00000020:dmaker-p28:1",
+            "description": "Temperature",
+            "format": "float",
+            "access": [
+              "read",
+              "notify"
+            ],
+            "unit": "celsius",
+            "value-range": [
+              0,
+              45,
+              0.1
+            ]
+          },
+          {
+            "iid": 2,
+            "type": "urn:miot-spec-v2:property:relative-humidity:0000000C:dmaker-p28:1",
+            "description": "Relative Humidity",
+            "format": "uint8",
+            "access": [
+              "read",
+              "notify"
+            ],
+            "unit": "percentage",
+            "value-range": [
+              0,
+              100,
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "iid": 3,
+        "type": "urn:dmaker-spec:service:off-delay-time:00007801:dmaker-p28:1",
+        "description": "off-delay-time",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:dmaker-spec:property:off-delay-time:00000001:dmaker-p28:1",
+            "description": "off-delay-time",
+            "format": "uint16",
+            "access": [
+              "write",
+              "read",
+              "notify"
+            ],
+            "value-range": [
+              0,
+              720,
+              1
+            ]
+          }
+        ],
+        "actions": [
+          {
+            "iid": 1,
+            "type": "urn:dmaker-spec:action:toggle:00002801:dmaker-p28:1",
+            "description": "toggle",
+            "in": [],
+            "out": []
+          }
+        ]
+      },
+      {
+        "iid": 8,
+        "type": "urn:dmaker-spec:service:dm-service:00007802:dmaker-p28:1",
+        "description": "dm-service",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:dmaker-spec:property:speed-level:00000001:dmaker-p28:1",
+            "description": "speed-level",
+            "format": "uint8",
+            "access": [
+              "write",
+              "read",
+              "notify"
+            ],
+            "value-range": [
+              1,
+              100,
+              1
+            ]
+          },
+          {
+            "iid": 2,
+            "type": "urn:dmaker-spec:property:swing-updown-manual:00000002:dmaker-p28:1",
+            "description": "swing-updown-manual",
+            "format": "uint8",
+            "access": [
+              "write"
+            ],
+            "value-list": [
+              {
+                "value": 0,
+                "description": "NONE"
+              },
+              {
+                "value": 1,
+                "description": "UP"
+              },
+              {
+                "value": 2,
+                "description": "DOWN"
+              }
+            ]
+          },
+          {
+            "iid": 3,
+            "type": "urn:dmaker-spec:property:swing-lr-manual:00000003:dmaker-p28:1",
+            "description": "swing-lr-manual",
+            "format": "uint8",
+            "access": [
+              "write"
+            ],
+            "value-list": [
+              {
+                "value": 0,
+                "description": "NONE"
+              },
+              {
+                "value": 1,
+                "description": "LEFT"
+              },
+              {
+                "value": 2,
+                "description": "RIGHT"
+              }
+            ]
+          },
+          {
+            "iid": 4,
+            "type": "urn:dmaker-spec:property:start-left:00000004:dmaker-p28:1",
+            "description": "start-left",
+            "format": "bool",
+            "access": [
+              "write"
+            ]
+          },
+          {
+            "iid": 5,
+            "type": "urn:dmaker-spec:property:start-right:00000005:dmaker-p28:1",
+            "description": "start-right",
+            "format": "bool",
+            "access": [
+              "write"
+            ]
+          },
+          {
+            "iid": 6,
+            "type": "urn:dmaker-spec:property:start-up:00000006:dmaker-p28:1",
+            "description": "start-up",
+            "format": "bool",
+            "access": [
+              "write"
+            ]
+          },
+          {
+            "iid": 7,
+            "type": "urn:dmaker-spec:property:start-down:00000007:dmaker-p28:1",
+            "description": "start-down",
+            "format": "bool",
+            "access": [
+              "write"
+            ]
+          },
+          {
+            "iid": 8,
+            "type": "urn:dmaker-spec:property:swing-all:00000008:dmaker-p28:1",
+            "description": "swing-all",
+            "format": "bool",
+            "access": [
+              "read",
+              "notify",
+              "write"
+            ]
+          },
+          {
+            "iid": 9,
+            "type": "urn:dmaker-spec:property:back-to-center:00000009:dmaker-p28:1",
+            "description": "back-to-center",
+            "format": "bool",
+            "access": [
+              "write"
+            ]
+          },
+          {
+            "iid": 10,
+            "type": "urn:dmaker-spec:property:off-to-center:0000000a:dmaker-p28:1",
+            "description": "off-to-center",
+            "format": "bool",
+            "access": [
+              "read",
+              "notify",
+              "write"
+            ]
+          }
+        ],
+        "actions": [
+          {
+            "iid": 1,
+            "type": "urn:dmaker-spec:action:toggle-mode:00002801:dmaker-p28:1",
+            "description": "toggle-mode",
+            "in": [],
+            "out": []
+          },
+          {
+            "iid": 2,
+            "type": "urn:dmaker-spec:action:loop-gear:00002802:dmaker-p28:1",
+            "description": "loop-gear",
+            "in": [],
+            "out": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "urn:miot-spec-v2:device:bath-heater:0000A028:yeelink-v6:2",
+    "description": "Bath Heater",
+    "services": [
+      {
+        "iid": 1,
+        "type": "urn:miot-spec-v2:service:device-information:00007801:yeelink-v6:1",
+        "description": "Device Information",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:miot-spec-v2:property:manufacturer:00000001:yeelink-v6:1",
+            "description": "Device Manufacturer",
+            "format": "string",
+            "access": [
+              "read"
+            ]
+          },
+          {
+            "iid": 2,
+            "type": "urn:miot-spec-v2:property:model:00000002:yeelink-v6:1",
+            "description": "Device Model",
+            "format": "string",
+            "access": [
+              "read"
+            ]
+          },
+          {
+            "iid": 3,
+            "type": "urn:miot-spec-v2:property:serial-number:00000003:yeelink-v6:1",
+            "description": "Device Serial Number",
+            "format": "string",
+            "access": [
+              "read"
+            ]
+          },
+          {
+            "iid": 4,
+            "type": "urn:miot-spec-v2:property:firmware-revision:00000005:yeelink-v6:1",
+            "description": "Current Firmware Version",
+            "format": "string",
+            "access": [
+              "read"
+            ]
+          }
+        ]
+      },
+      {
+        "iid": 2,
+        "type": "urn:miot-spec-v2:service:light:00007802:yeelink-v6:1",
+        "description": "Light",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:miot-spec-v2:property:on:00000006:yeelink-v6:1",
+            "description": "Switch Status",
+            "format": "bool",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ],
+            "unit": "none"
+          },
+          {
+            "iid": 2,
+            "type": "urn:miot-spec-v2:property:mode:00000008:yeelink-v6:1",
+            "description": "Mode",
+            "format": "uint8",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ],
+            "unit": "none",
+            "value-list": [
+              {
+                "value": 0,
+                "description": "Day"
+              },
+              {
+                "value": 1,
+                "description": "Night"
+              }
+            ]
+          },
+          {
+            "iid": 3,
+            "type": "urn:miot-spec-v2:property:brightness:0000000D:yeelink-v6:1",
+            "description": "Brightness",
+            "format": "uint8",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ],
+            "unit": "percentage",
+            "value-range": [
+              1,
+              100,
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "iid": 3,
+        "type": "urn:miot-spec-v2:service:ptc-bath-heater:0000783B:yeelink-v6:1",
+        "description": "PTC Bath Heater",
+        "properties": [
+          {
+            "iid": 1,
+            "type": "urn:miot-spec-v2:property:mode:00000008:yeelink-v6:1",
+            "description": "Mode",
+            "format": "uint8",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ],
+            "unit": "none",
+            "value-list": [
+              {
+                "value": 0,
+                "description": "Idle"
+              },
+              {
+                "value": 1,
+                "description": "Fan"
+              },
+              {
+                "value": 2,
+                "description": "Heat"
+              },
+              {
+                "value": 3,
+                "description": "Ventilate"
+              },
+              {
+                "value": 4,
+                "description": "Dry"
+              }
+            ]
+          },
+          {
+            "iid": 2,
+            "type": "urn:miot-spec-v2:property:target-temperature:00000021:yeelink-v6:1",
+            "description": "Target Temperature",
+            "format": "uint8",
+            "access": [
+              "read",
+              "write",
+              "notify"
+            ],
+            "unit": "celsius",
+            "value-range": [
+              25,
+              45,
+              1
+            ]
+          },
+          {
+            "iid": 3,
+            "type": "urn:miot-spec-v2:property:temperature:00000020:yeelink-v6:1",
+            "description": "Temperature",
+            "format": "uint8",
+            "access": [
+              "read",
+              "notify"
+            ],
+            "unit": "celsius",
+            "value-range": [
+              0,
+              50,
+              1
+            ]
+          }
+        ],
+        "actions": [
+          {
+            "iid": 1,
+            "type": "urn:miot-spec-v2:action:stop-working:00002825:yeelink-v6:1",
+            "description": "Stop Working",
+            "in": [],
+            "out": []
+          }
+        ]
+      },
+      {
+        "iid": 4,
+        "type": "urn:yeelink-spec:service:notify:00007801:yeelink-v6:1",
+        "description": "notify",
+        "events": [
+          {
+            "iid": 1,
+            "type": "urn:yeelink-spec:event:fan-error:00005001:yeelink-v6:1",
+            "description": "fan-error",
+            "arguments": []
+          },
+          {
+            "iid": 2,
+            "type": "urn:yeelink-spec:event:venting-keep:00005002:yeelink-v6:1",
+            "description": "venting-keep",
+            "arguments": []
+          },
+          {
+            "iid": 3,
+            "type": "urn:yeelink-spec:event:overtime:00005003:yeelink-v6:1",
+            "description": "overtime",
+            "arguments": []
+          },
+          {
+            "iid": 4,
+            "type": "urn:yeelink-spec:event:delayoff:00005004:yeelink-v6:1",
+            "description": "delayoff",
+            "arguments": []
+          },
+          {
+            "iid": 5,
+            "type": "urn:yeelink-spec:event:over-temperature:00005005:yeelink-v6:1",
+            "description": "over-temperature",
+            "arguments": []
+          }
+        ]
+      }
+    ]
+  }
+]

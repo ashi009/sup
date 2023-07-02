@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"os"
 	"os/signal"
 
@@ -15,6 +16,8 @@ import (
 func main() {
 	log.Debug.Enable()
 	dnssdlog.Debug.Enable()
+
+	fmt.Println("wtf")
 
 	ab := accessory.NewBridge(accessory.Info{
 		Name: "HAP Bridge",

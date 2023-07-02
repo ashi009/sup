@@ -9,7 +9,7 @@ devices.forEach(device => {
 
   device.services.forEach(service => {
     service.properties?.forEach(property => {
-      const propType = camelCase(shortType(property.type));
+      const propType = camelCase(shortType(property.type, false));
       if (!properties.has(propType)) {
         properties.set(propType, []);
       }
@@ -43,11 +43,11 @@ devices.forEach(device => {
     const serviceName = service.description.replace(/ Service$/i, '').replace(/ /g, '');
     service.properties?.forEach(property => {
       const propName = camelCase(shortType(property.type, false));
-      const propType = camelCase(shortType(property.type));
+      const propType = camelCase(shortType(property.type, false));
       const name = camelCase(serviceName) + camelCase(propName);
       res.push(`// ${name} ${property.description}`);
       res.push(`type ${name} struct {`);
-      res.push(`  V ${propType}`);
+      res.push(`  V ${propType}V`);
       res.push(`  Err error // Output only`);
       res.push(`}`);
     });
@@ -57,20 +57,20 @@ devices.forEach(device => {
     const s = new Set();
     properties.forEach(property => {
       const t = [
-        `// ${propType} ${property.description}`,
-        `type ${propType} ${toGoType(property.format)}`,
+        `// ${propType}V ${property.description}`,
+        `type ${propType}V ${toGoType(property.format)}`,
       ];
       const enums = property['value-list'];
       if (enums) {
         t.push(`const (`);
         enums.forEach(({ value, description }) => {
-          t.push(`  ${propType}${camelCase(description)} ${propType} = ${value}`);
+          t.push(`  ${camelCase(propType)}${camelCase(description)} ${propType}V = ${value}`);
         });
         t.push(`)`);
-        t.push(`func (v ${propType}) String() string {`);
+        t.push(`func (v ${propType}V) String() string {`);
         t.push(`  switch v {`);
         enums.forEach(({ value, description }) => {
-          t.push(`  case ${propType}${camelCase(description)}:`);
+          t.push(`  case ${camelCase(propType)}${camelCase(description)}:`);
           t.push(`    return "${description}"`);
         });
         t.push(`  default:`);

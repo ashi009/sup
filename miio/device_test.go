@@ -3,10 +3,12 @@ package miio
 import (
 	"context"
 	"net"
-	"sup/miio/devices/airconditioners/xiaomic16"
-	"sup/miio/devices/bathheaters/yeelinkv6"
 	"testing"
 	"time"
+
+	"sup/miio/devices/airconditioners/xiaomic16"
+	"sup/miio/devices/bathheaters/yeelinkv6"
+	"sup/miio/devices/fans/dmakerp28"
 )
 
 func TestTV(t *testing.T) {
@@ -126,14 +128,26 @@ func TestAC(t *testing.T) {
 	// t.Error(pretty.Sprint(props))
 	t.Errorf("%#v", props)
 
+	// var nprops = struct {
+	// 	xiaomic16.AirConditionerOn
+	// 	xiaomic16.AirConditionerMode
+	// 	xiaomic16.AirConditionerTargetTemperature
+	// }{
+	// 	xiaomic16.AirConditionerOn{V: true},
+	// 	xiaomic16.AirConditionerMode{V: xiaomic16.ModeCool},
+	// 	xiaomic16.AirConditionerTargetTemperature{V: 27.5},
+	// }
+
 	var nprops = struct {
 		xiaomic16.AirConditionerOn
-		xiaomic16.AirConditionerMode
-		xiaomic16.AirConditionerTargetTemperature
+		xiaomic16.FanPercent
+		xiaomic16.FanControlVerticalSwing
+		xiaomic16.AirConditionerUnStraightBlowing
 	}{
 		xiaomic16.AirConditionerOn{V: false},
-		xiaomic16.AirConditionerMode{V: xiaomic16.MiotV2ModeCool},
-		xiaomic16.AirConditionerTargetTemperature{V: 27.5},
+		xiaomic16.FanPercent{V: 1},
+		xiaomic16.FanControlVerticalSwing{V: true},
+		xiaomic16.AirConditionerUnStraightBlowing{V: true},
 	}
 	if err := d.SetPropertiesV2(ctx, &nprops); err != nil {
 		t.Error(err)
@@ -175,13 +189,13 @@ func TestAC2(t *testing.T) {
 
 	var nprops = struct {
 		// xiaomic16.AirConditionerOn
-		xiaomic16.FanControlFanLevel
+		xiaomic16.FanPercent
 		xiaomic16.FanControlVerticalSwing
 		xiaomic16.AirConditionerUnStraightBlowing
 	}{
 		// xiaomic16.AirConditionerOn{V: true},
-		xiaomic16.FanControlFanLevel{V: xiaomic16.MiotV2FanLevelAuto},
-		xiaomic16.FanControlVerticalSwing{V: false},
+		xiaomic16.FanPercent{V: 1},
+		xiaomic16.FanControlVerticalSwing{V: true},
 		xiaomic16.AirConditionerUnStraightBlowing{V: true},
 	}
 	if err := d.SetPropertiesV2(ctx, &nprops); err != nil {
@@ -198,15 +212,18 @@ func TestVent(t *testing.T) {
 		},
 		"b84fe5ab47826e1575f9c1c3d22a1393",
 	)
+	if err != nil {
+		t.Fatal(err)
+	}
 
 	ctx := context.Background()
 	ctx, _ = context.WithTimeout(ctx, 5*time.Second)
 
-	info, err := d.Info(ctx)
-	if err != nil {
-		t.Fatal(err)
-	}
-	t.Error(info)
+	// info, err := d.Info(ctx)
+	// if err != nil {
+	// 	t.Fatal(err)
+	// }
+	// t.Error(info)
 
 	var props struct {
 		yeelinkv6.PTCBathHeaterTemperature
@@ -217,5 +234,35 @@ func TestVent(t *testing.T) {
 		t.Error(err)
 	}
 	// t.Error(pretty.Sprint(props))
-	t.Errorf("%v", props)
+	t.Errorf("%#v", props)
+}
+
+func TestFan(t *testing.T) {
+	d, err := ConenctDevice(
+		&net.UDPAddr{
+			IP:   net.IPv4(192, 168, 1, 148),
+			Port: 54321,
+		},
+		"6bcf039baf2374bd44d8a455d95b7738",
+	)
+
+	ctx := context.Background()
+	ctx, _ = context.WithTimeout(ctx, 5*time.Second)
+
+	info, err := d.Info(ctx)
+	if err != nil {
+		t.Fatal(err)
+	}
+	t.Error(info)
+
+	nprops := struct {
+		dmakerp28.FanOn
+	}{
+		dmakerp28.FanOn{V: false},
+	}
+	if err := d.SetPropertiesV2(ctx, &nprops); err != nil {
+		t.Error(err)
+	}
+	// t.Error(pretty.Sprint(props))
+	t.Errorf("%v", nprops)
 }

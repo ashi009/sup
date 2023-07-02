@@ -1,850 +1,734 @@
 package xiaomic16
-
 import (
-	"fmt"
-	"reflect"
+  "reflect"
+  "fmt"
 
-	"sup/miio/devices"
+  "sup/miio/devices"
 )
-
 var _ fmt.Stringer
-
 func init() {
-	devices.RegisterProperty(reflect.TypeOf(DeviceInformationManufacturer{}), 1, 1)
-	devices.RegisterProperty(reflect.TypeOf(DeviceInformationModel{}), 1, 2)
-	devices.RegisterProperty(reflect.TypeOf(DeviceInformationSerialNumber{}), 1, 3)
-	devices.RegisterProperty(reflect.TypeOf(DeviceInformationFirmwareRevision{}), 1, 4)
-	devices.RegisterProperty(reflect.TypeOf(DeviceInformationSerialNo{}), 1, 5)
-	devices.RegisterProperty(reflect.TypeOf(AirConditionerOn{}), 2, 1)
-	devices.RegisterProperty(reflect.TypeOf(AirConditionerMode{}), 2, 2)
-	devices.RegisterProperty(reflect.TypeOf(AirConditionerFault{}), 2, 3)
-	devices.RegisterProperty(reflect.TypeOf(AirConditionerTargetTemperature{}), 2, 4)
-	devices.RegisterProperty(reflect.TypeOf(AirConditionerEco{}), 2, 7)
-	devices.RegisterProperty(reflect.TypeOf(AirConditionerHeater{}), 2, 9)
-	devices.RegisterProperty(reflect.TypeOf(AirConditionerDryer{}), 2, 10)
-	devices.RegisterProperty(reflect.TypeOf(AirConditionerSleepMode{}), 2, 11)
-	devices.RegisterProperty(reflect.TypeOf(AirConditionerTargetHumidity{}), 2, 14)
-	devices.RegisterProperty(reflect.TypeOf(AirConditionerUnStraightBlowing{}), 2, 15)
-	devices.RegisterProperty(reflect.TypeOf(FanControlFanLevel{}), 3, 2)
-	devices.RegisterProperty(reflect.TypeOf(FanControlVerticalSwing{}), 3, 4)
-	devices.RegisterProperty(reflect.TypeOf(EnvironmentTemperature{}), 4, 7)
-	devices.RegisterProperty(reflect.TypeOf(EnvironmentRelativeHumidity{}), 4, 9)
-	devices.RegisterProperty(reflect.TypeOf(AlarmAlarm{}), 5, 1)
-	devices.RegisterProperty(reflect.TypeOf(IndicatorLightOn{}), 6, 1)
-	devices.RegisterProperty(reflect.TypeOf(IndicatorLightBrightness{}), 6, 2)
-	devices.RegisterProperty(reflect.TypeOf(Electricity{}), 8, 1)
-	devices.RegisterProperty(reflect.TypeOf(ElecCount{}), 8, 3)
-	devices.RegisterProperty(reflect.TypeOf(Clean{}), 9, 1)
-	devices.RegisterProperty(reflect.TypeOf(Examine{}), 9, 2)
-	devices.RegisterProperty(reflect.TypeOf(Error{}), 9, 3)
-	devices.RegisterProperty(reflect.TypeOf(RunningDuration{}), 9, 5)
-	devices.RegisterProperty(reflect.TypeOf(FanPercent{}), 10, 1)
-	devices.RegisterProperty(reflect.TypeOf(Timer{}), 10, 3)
-	devices.RegisterProperty(reflect.TypeOf(HumidityRange{}), 10, 6)
-	devices.RegisterProperty(reflect.TypeOf(TemperatureHumidity{}), 10, 9)
-	devices.RegisterProperty(reflect.TypeOf(IotLinkageIotTemp{}), 11, 1)
-	devices.RegisterProperty(reflect.TypeOf(IotLinkageTempCtrl{}), 11, 5)
-	devices.RegisterProperty(reflect.TypeOf(IotLinkageSmartSleepCtrl{}), 11, 6)
-	devices.RegisterProperty(reflect.TypeOf(MachineStateIndoorPipeTemp{}), 12, 1)
-	devices.RegisterProperty(reflect.TypeOf(MachineStateIndoorFanSpeed{}), 12, 3)
-	devices.RegisterProperty(reflect.TypeOf(MachineStateRealHeaterSwitch{}), 12, 4)
-	devices.RegisterProperty(reflect.TypeOf(MachineStateRealindoorFanLever{}), 12, 5)
-	devices.RegisterProperty(reflect.TypeOf(MachineStateOutdoorTemp{}), 12, 7)
-	devices.RegisterProperty(reflect.TypeOf(MachineStateOutdoorPipeTemp{}), 12, 8)
-	devices.RegisterProperty(reflect.TypeOf(MachineStateOutdoorExhaustTemp{}), 12, 9)
-	devices.RegisterProperty(reflect.TypeOf(MachineStateOutdoorFanLever{}), 12, 10)
-	devices.RegisterProperty(reflect.TypeOf(MachineStateCompressorFrequency{}), 12, 11)
-	devices.RegisterProperty(reflect.TypeOf(MachineStateFourwayValveSwitch{}), 12, 12)
-	devices.RegisterProperty(reflect.TypeOf(MachineStateOutdoorCurrent{}), 12, 13)
-	devices.RegisterProperty(reflect.TypeOf(MachineStateOutdoorMVoltage{}), 12, 14)
-	devices.RegisterProperty(reflect.TypeOf(MachineStateExpansionValve{}), 12, 15)
-	devices.RegisterProperty(reflect.TypeOf(MachineStateLongitudeLatitude{}), 12, 16)
-	devices.RegisterProperty(reflect.TypeOf(MachineStateAmbientLight{}), 12, 19)
-	devices.RegisterProperty(reflect.TypeOf(FaultValueFaultValue{}), 13, 1)
+  devices.RegisterProperty(reflect.TypeOf(DeviceInformationManufacturer{}), 1, 1)
+  devices.RegisterProperty(reflect.TypeOf(DeviceInformationModel{}), 1, 2)
+  devices.RegisterProperty(reflect.TypeOf(DeviceInformationSerialNumber{}), 1, 3)
+  devices.RegisterProperty(reflect.TypeOf(DeviceInformationFirmwareRevision{}), 1, 4)
+  devices.RegisterProperty(reflect.TypeOf(DeviceInformationSerialNo{}), 1, 5)
+  devices.RegisterProperty(reflect.TypeOf(AirConditionerOn{}), 2, 1)
+  devices.RegisterProperty(reflect.TypeOf(AirConditionerMode{}), 2, 2)
+  devices.RegisterProperty(reflect.TypeOf(AirConditionerFault{}), 2, 3)
+  devices.RegisterProperty(reflect.TypeOf(AirConditionerTargetTemperature{}), 2, 4)
+  devices.RegisterProperty(reflect.TypeOf(AirConditionerEco{}), 2, 7)
+  devices.RegisterProperty(reflect.TypeOf(AirConditionerHeater{}), 2, 9)
+  devices.RegisterProperty(reflect.TypeOf(AirConditionerDryer{}), 2, 10)
+  devices.RegisterProperty(reflect.TypeOf(AirConditionerSleepMode{}), 2, 11)
+  devices.RegisterProperty(reflect.TypeOf(AirConditionerTargetHumidity{}), 2, 14)
+  devices.RegisterProperty(reflect.TypeOf(AirConditionerUnStraightBlowing{}), 2, 15)
+  devices.RegisterProperty(reflect.TypeOf(FanControlFanLevel{}), 3, 2)
+  devices.RegisterProperty(reflect.TypeOf(FanControlVerticalSwing{}), 3, 4)
+  devices.RegisterProperty(reflect.TypeOf(EnvironmentTemperature{}), 4, 7)
+  devices.RegisterProperty(reflect.TypeOf(EnvironmentRelativeHumidity{}), 4, 9)
+  devices.RegisterProperty(reflect.TypeOf(AlarmAlarm{}), 5, 1)
+  devices.RegisterProperty(reflect.TypeOf(IndicatorLightOn{}), 6, 1)
+  devices.RegisterProperty(reflect.TypeOf(IndicatorLightBrightness{}), 6, 2)
+  devices.RegisterProperty(reflect.TypeOf(Electricity{}), 8, 1)
+  devices.RegisterProperty(reflect.TypeOf(ElecCount{}), 8, 3)
+  devices.RegisterProperty(reflect.TypeOf(Clean{}), 9, 1)
+  devices.RegisterProperty(reflect.TypeOf(Examine{}), 9, 2)
+  devices.RegisterProperty(reflect.TypeOf(Error{}), 9, 3)
+  devices.RegisterProperty(reflect.TypeOf(RunningDuration{}), 9, 5)
+  devices.RegisterProperty(reflect.TypeOf(FanPercent{}), 10, 1)
+  devices.RegisterProperty(reflect.TypeOf(Timer{}), 10, 3)
+  devices.RegisterProperty(reflect.TypeOf(HumidityRange{}), 10, 6)
+  devices.RegisterProperty(reflect.TypeOf(TemperatureHumidity{}), 10, 9)
+  devices.RegisterProperty(reflect.TypeOf(IotLinkageIotTemp{}), 11, 1)
+  devices.RegisterProperty(reflect.TypeOf(IotLinkageTempCtrl{}), 11, 5)
+  devices.RegisterProperty(reflect.TypeOf(IotLinkageSmartSleepCtrl{}), 11, 6)
+  devices.RegisterProperty(reflect.TypeOf(MachineStateIndoorPipeTemp{}), 12, 1)
+  devices.RegisterProperty(reflect.TypeOf(MachineStateIndoorFanSpeed{}), 12, 3)
+  devices.RegisterProperty(reflect.TypeOf(MachineStateRealHeaterSwitch{}), 12, 4)
+  devices.RegisterProperty(reflect.TypeOf(MachineStateRealindoorFanLever{}), 12, 5)
+  devices.RegisterProperty(reflect.TypeOf(MachineStateOutdoorTemp{}), 12, 7)
+  devices.RegisterProperty(reflect.TypeOf(MachineStateOutdoorPipeTemp{}), 12, 8)
+  devices.RegisterProperty(reflect.TypeOf(MachineStateOutdoorExhaustTemp{}), 12, 9)
+  devices.RegisterProperty(reflect.TypeOf(MachineStateOutdoorFanLever{}), 12, 10)
+  devices.RegisterProperty(reflect.TypeOf(MachineStateCompressorFrequency{}), 12, 11)
+  devices.RegisterProperty(reflect.TypeOf(MachineStateFourwayValveSwitch{}), 12, 12)
+  devices.RegisterProperty(reflect.TypeOf(MachineStateOutdoorCurrent{}), 12, 13)
+  devices.RegisterProperty(reflect.TypeOf(MachineStateOutdoorMVoltage{}), 12, 14)
+  devices.RegisterProperty(reflect.TypeOf(MachineStateExpansionValve{}), 12, 15)
+  devices.RegisterProperty(reflect.TypeOf(MachineStateLongitudeLatitude{}), 12, 16)
+  devices.RegisterProperty(reflect.TypeOf(MachineStateAmbientLight{}), 12, 19)
+  devices.RegisterProperty(reflect.TypeOf(FaultValueFaultValue{}), 13, 1)
 }
-
 // DeviceInformationManufacturer Device Manufacturer
 type DeviceInformationManufacturer struct {
-	V   MiotV2Manufacturer
-	Err error // Output only
+  V ManufacturerV
+  Err error // Output only
 }
-
 // DeviceInformationModel Device Model
 type DeviceInformationModel struct {
-	V   MiotV2Model
-	Err error // Output only
+  V ModelV
+  Err error // Output only
 }
-
 // DeviceInformationSerialNumber Device Serial Number
 type DeviceInformationSerialNumber struct {
-	V   MiotV2SerialNumber
-	Err error // Output only
+  V SerialNumberV
+  Err error // Output only
 }
-
 // DeviceInformationFirmwareRevision Current Firmware Version
 type DeviceInformationFirmwareRevision struct {
-	V   MiotV2FirmwareRevision
-	Err error // Output only
+  V FirmwareRevisionV
+  Err error // Output only
 }
-
 // DeviceInformationSerialNo Serial Number
 type DeviceInformationSerialNo struct {
-	V   MiotV2SerialNo
-	Err error // Output only
+  V SerialNoV
+  Err error // Output only
 }
-
 // AirConditionerOn Switch Status
 type AirConditionerOn struct {
-	V   MiotV2On
-	Err error // Output only
+  V OnV
+  Err error // Output only
 }
-
 // AirConditionerMode Mode
 type AirConditionerMode struct {
-	V   MiotV2Mode
-	Err error // Output only
+  V ModeV
+  Err error // Output only
 }
-
 // AirConditionerFault Device Fault
 type AirConditionerFault struct {
-	V   MiotV2Fault
-	Err error // Output only
+  V FaultV
+  Err error // Output only
 }
-
 // AirConditionerTargetTemperature Target Temperature
 type AirConditionerTargetTemperature struct {
-	V   MiotV2TargetTemperature
-	Err error // Output only
+  V TargetTemperatureV
+  Err error // Output only
 }
-
 // AirConditionerEco ECO
 type AirConditionerEco struct {
-	V   MiotV2Eco
-	Err error // Output only
+  V EcoV
+  Err error // Output only
 }
-
 // AirConditionerHeater Heater
 type AirConditionerHeater struct {
-	V   MiotV2Heater
-	Err error // Output only
+  V HeaterV
+  Err error // Output only
 }
-
 // AirConditionerDryer Dryer
 type AirConditionerDryer struct {
-	V   MiotV2Dryer
-	Err error // Output only
+  V DryerV
+  Err error // Output only
 }
-
 // AirConditionerSleepMode Sleep Mode
 type AirConditionerSleepMode struct {
-	V   MiotV2SleepMode
-	Err error // Output only
+  V SleepModeV
+  Err error // Output only
 }
-
 // AirConditionerTargetHumidity Target Humidity
 type AirConditionerTargetHumidity struct {
-	V   MiotV2TargetHumidity
-	Err error // Output only
+  V TargetHumidityV
+  Err error // Output only
 }
-
 // AirConditionerUnStraightBlowing Unstraight Blowing
 type AirConditionerUnStraightBlowing struct {
-	V   MiotV2UnStraightBlowing
-	Err error // Output only
+  V UnStraightBlowingV
+  Err error // Output only
 }
-
 // FanControlFanLevel Fan Level
 type FanControlFanLevel struct {
-	V   MiotV2FanLevel
-	Err error // Output only
+  V FanLevelV
+  Err error // Output only
 }
-
 // FanControlVerticalSwing Vertical Swing
 type FanControlVerticalSwing struct {
-	V   MiotV2VerticalSwing
-	Err error // Output only
+  V VerticalSwingV
+  Err error // Output only
 }
-
 // EnvironmentTemperature Temperature
 type EnvironmentTemperature struct {
-	V   MiotV2Temperature
-	Err error // Output only
+  V TemperatureV
+  Err error // Output only
 }
-
 // EnvironmentRelativeHumidity Relative Humidity
 type EnvironmentRelativeHumidity struct {
-	V   MiotV2RelativeHumidity
-	Err error // Output only
+  V RelativeHumidityV
+  Err error // Output only
 }
-
 // AlarmAlarm Alarm
 type AlarmAlarm struct {
-	V   MiotV2Alarm
-	Err error // Output only
+  V AlarmV
+  Err error // Output only
 }
-
 // IndicatorLightOn Switch Status
 type IndicatorLightOn struct {
-	V   MiotV2On
-	Err error // Output only
+  V OnV
+  Err error // Output only
 }
-
 // IndicatorLightBrightness Brightness
 type IndicatorLightBrightness struct {
-	V   MiotV2Brightness
-	Err error // Output only
+  V BrightnessV
+  Err error // Output only
 }
-
 // Electricity 耗电量
 type Electricity struct {
-	V   XiaomiElectricity
-	Err error // Output only
+  V ElectricityV
+  Err error // Output only
 }
-
 // ElecCount 耗电量本次计数
 type ElecCount struct {
-	V   XiaomiElecCount
-	Err error // Output only
+  V ElecCountV
+  Err error // Output only
 }
-
 // Clean 自清洁开关
 type Clean struct {
-	V   XiaomiClean
-	Err error // Output only
+  V CleanV
+  Err error // Output only
 }
-
 // Examine 机组体检开关
 type Examine struct {
-	V   XiaomiExamine
-	Err error // Output only
+  V ExamineV
+  Err error // Output only
 }
-
 // Error 故障
 type Error struct {
-	V   XiaomiError
-	Err error // Output only
+  V ErrorV
+  Err error // Output only
 }
-
 // RunningDuration 累计运行时长
 type RunningDuration struct {
-	V   XiaomiRunningDuration
-	Err error // Output only
+  V RunningDurationV
+  Err error // Output only
 }
-
 // FanPercent 风速百分比
 type FanPercent struct {
-	V   XiaomiFanPercent
-	Err error // Output only
+  V FanPercentV
+  Err error // Output only
 }
-
 // Timer timer
 type Timer struct {
-	V   XiaomiTimer
-	Err error // Output only
+  V TimerV
+  Err error // Output only
 }
-
 // HumidityRange humidity-range
 type HumidityRange struct {
-	V   XiaomiHumidityRange
-	Err error // Output only
+  V HumidityRangeV
+  Err error // Output only
 }
-
 // TemperatureHumidity temperature-humidity
 type TemperatureHumidity struct {
-	V   XiaomiTemperatureHumidity
-	Err error // Output only
+  V TemperatureHumidityV
+  Err error // Output only
 }
-
 // IotLinkageIotTemp iot-temp
 type IotLinkageIotTemp struct {
-	V   XiaomiIotTemp
-	Err error // Output only
+  V IotTempV
+  Err error // Output only
 }
-
 // IotLinkageTempCtrl temp-ctrl
 type IotLinkageTempCtrl struct {
-	V   XiaomiTempCtrl
-	Err error // Output only
+  V TempCtrlV
+  Err error // Output only
 }
-
 // IotLinkageSmartSleepCtrl smart-sleep-ctrl
 type IotLinkageSmartSleepCtrl struct {
-	V   XiaomiSmartSleepCtrl
-	Err error // Output only
+  V SmartSleepCtrlV
+  Err error // Output only
 }
-
 // MachineStateIndoorPipeTemp indoor-pipe-temp
 type MachineStateIndoorPipeTemp struct {
-	V   XiaomiIndoorPipeTemp
-	Err error // Output only
+  V IndoorPipeTempV
+  Err error // Output only
 }
-
 // MachineStateIndoorFanSpeed indoor-fan-speed
 type MachineStateIndoorFanSpeed struct {
-	V   XiaomiIndoorFanSpeed
-	Err error // Output only
+  V IndoorFanSpeedV
+  Err error // Output only
 }
-
 // MachineStateRealHeaterSwitch real-heater-switch
 type MachineStateRealHeaterSwitch struct {
-	V   XiaomiRealHeaterSwitch
-	Err error // Output only
+  V RealHeaterSwitchV
+  Err error // Output only
 }
-
 // MachineStateRealindoorFanLever realindoor-fan-lever
 type MachineStateRealindoorFanLever struct {
-	V   XiaomiRealindoorFanLever
-	Err error // Output only
+  V RealindoorFanLeverV
+  Err error // Output only
 }
-
 // MachineStateOutdoorTemp outdoor-temp
 type MachineStateOutdoorTemp struct {
-	V   XiaomiOutdoorTemp
-	Err error // Output only
+  V OutdoorTempV
+  Err error // Output only
 }
-
 // MachineStateOutdoorPipeTemp outdoor-pipe-temp
 type MachineStateOutdoorPipeTemp struct {
-	V   XiaomiOutdoorPipeTemp
-	Err error // Output only
+  V OutdoorPipeTempV
+  Err error // Output only
 }
-
 // MachineStateOutdoorExhaustTemp outdoor-exhaust-temp
 type MachineStateOutdoorExhaustTemp struct {
-	V   XiaomiOutdoorExhaustTemp
-	Err error // Output only
+  V OutdoorExhaustTempV
+  Err error // Output only
 }
-
 // MachineStateOutdoorFanLever outdoor-fan-lever
 type MachineStateOutdoorFanLever struct {
-	V   XiaomiOutdoorFanLever
-	Err error // Output only
+  V OutdoorFanLeverV
+  Err error // Output only
 }
-
 // MachineStateCompressorFrequency compressor-frequency
 type MachineStateCompressorFrequency struct {
-	V   XiaomiCompressorFrequency
-	Err error // Output only
+  V CompressorFrequencyV
+  Err error // Output only
 }
-
 // MachineStateFourwayValveSwitch fourway-valve-switch
 type MachineStateFourwayValveSwitch struct {
-	V   XiaomiFourwayValveSwitch
-	Err error // Output only
+  V FourwayValveSwitchV
+  Err error // Output only
 }
-
 // MachineStateOutdoorCurrent outdoor--current
 type MachineStateOutdoorCurrent struct {
-	V   XiaomiOutdoorCurrent
-	Err error // Output only
+  V OutdoorCurrentV
+  Err error // Output only
 }
-
 // MachineStateOutdoorMVoltage outdoor-m-voltage
 type MachineStateOutdoorMVoltage struct {
-	V   XiaomiOutdoorMVoltage
-	Err error // Output only
+  V OutdoorMVoltageV
+  Err error // Output only
 }
-
 // MachineStateExpansionValve expansion-valve
 type MachineStateExpansionValve struct {
-	V   XiaomiExpansionValve
-	Err error // Output only
+  V ExpansionValveV
+  Err error // Output only
 }
-
 // MachineStateLongitudeLatitude longitude-latitude
 type MachineStateLongitudeLatitude struct {
-	V   XiaomiLongitudeLatitude
-	Err error // Output only
+  V LongitudeLatitudeV
+  Err error // Output only
 }
-
 // MachineStateAmbientLight ambient-light
 type MachineStateAmbientLight struct {
-	V   XiaomiAmbientLight
-	Err error // Output only
+  V AmbientLightV
+  Err error // Output only
 }
-
 // FaultValueFaultValue fault-value
 type FaultValueFaultValue struct {
-	V   XiaomiFaultValue
-	Err error // Output only
+  V FaultValueV
+  Err error // Output only
 }
-
-// MiotV2Manufacturer Device Manufacturer
-type MiotV2Manufacturer string
-
-// MiotV2Model Device Model
-type MiotV2Model string
-
-// MiotV2SerialNumber Device Serial Number
-type MiotV2SerialNumber string
-
-// MiotV2FirmwareRevision Current Firmware Version
-type MiotV2FirmwareRevision string
-
-// MiotV2SerialNo Serial Number
-type MiotV2SerialNo string
-
-// MiotV2On Switch Status
-type MiotV2On bool
-
-// MiotV2Mode Mode
-type MiotV2Mode uint8
-
+// ManufacturerV Device Manufacturer
+type ManufacturerV string
+// ModelV Device Model
+type ModelV string
+// SerialNumberV Device Serial Number
+type SerialNumberV string
+// FirmwareRevisionV Current Firmware Version
+type FirmwareRevisionV string
+// SerialNoV Serial Number
+type SerialNoV string
+// OnV Switch Status
+type OnV bool
+// ModeV Mode
+type ModeV uint8
 const (
-	MiotV2ModeCool MiotV2Mode = 2
-	MiotV2ModeDry  MiotV2Mode = 3
-	MiotV2ModeFan  MiotV2Mode = 4
-	MiotV2ModeHeat MiotV2Mode = 5
+  ModeCool ModeV = 2
+  ModeDry ModeV = 3
+  ModeFan ModeV = 4
+  ModeHeat ModeV = 5
 )
-
-func (v MiotV2Mode) String() string {
-	switch v {
-	case MiotV2ModeCool:
-		return "Cool"
-	case MiotV2ModeDry:
-		return "Dry"
-	case MiotV2ModeFan:
-		return "Fan"
-	case MiotV2ModeHeat:
-		return "Heat"
-	default:
-		return fmt.Sprintf("unknown MiotV2Mode: %v", uint8(v))
-	}
+func (v ModeV) String() string {
+  switch v {
+  case ModeCool:
+    return "Cool"
+  case ModeDry:
+    return "Dry"
+  case ModeFan:
+    return "Fan"
+  case ModeHeat:
+    return "Heat"
+  default:
+    return fmt.Sprintf("unknown Mode: %v", uint8(v))
+  }
 }
-
-// MiotV2Fault Device Fault
-type MiotV2Fault string
-
-// MiotV2TargetTemperature Target Temperature
-type MiotV2TargetTemperature float64
-
-// MiotV2Eco ECO
-type MiotV2Eco bool
-
-// MiotV2Heater Heater
-type MiotV2Heater bool
-
-// MiotV2Dryer Dryer
-type MiotV2Dryer bool
-
-// MiotV2SleepMode Sleep Mode
-type MiotV2SleepMode bool
-
-// MiotV2TargetHumidity Target Humidity
-type MiotV2TargetHumidity uint8
-
-// MiotV2UnStraightBlowing Unstraight Blowing
-type MiotV2UnStraightBlowing bool
-
-// MiotV2FanLevel Fan Level
-type MiotV2FanLevel uint8
-
+// FaultV Device Fault
+type FaultV string
+// TargetTemperatureV Target Temperature
+type TargetTemperatureV float64
+// EcoV ECO
+type EcoV bool
+// HeaterV Heater
+type HeaterV bool
+// DryerV Dryer
+type DryerV bool
+// SleepModeV Sleep Mode
+type SleepModeV bool
+// TargetHumidityV Target Humidity
+type TargetHumidityV uint8
+// UnStraightBlowingV Unstraight Blowing
+type UnStraightBlowingV bool
+// FanLevelV Fan Level
+type FanLevelV uint8
 const (
-	MiotV2FanLevelAuto   MiotV2FanLevel = 0
-	MiotV2FanLevelLevel1 MiotV2FanLevel = 1
-	MiotV2FanLevelLevel2 MiotV2FanLevel = 2
-	MiotV2FanLevelLevel3 MiotV2FanLevel = 3
-	MiotV2FanLevelLevel4 MiotV2FanLevel = 4
-	MiotV2FanLevelLevel5 MiotV2FanLevel = 5
-	MiotV2FanLevelLevel6 MiotV2FanLevel = 6
-	MiotV2FanLevelLevel7 MiotV2FanLevel = 7
+  FanLevelAuto FanLevelV = 0
+  FanLevelLevel1 FanLevelV = 1
+  FanLevelLevel2 FanLevelV = 2
+  FanLevelLevel3 FanLevelV = 3
+  FanLevelLevel4 FanLevelV = 4
+  FanLevelLevel5 FanLevelV = 5
+  FanLevelLevel6 FanLevelV = 6
+  FanLevelLevel7 FanLevelV = 7
 )
-
-func (v MiotV2FanLevel) String() string {
-	switch v {
-	case MiotV2FanLevelAuto:
-		return "Auto"
-	case MiotV2FanLevelLevel1:
-		return "Level1"
-	case MiotV2FanLevelLevel2:
-		return "Level2"
-	case MiotV2FanLevelLevel3:
-		return "Level3"
-	case MiotV2FanLevelLevel4:
-		return "Level4"
-	case MiotV2FanLevelLevel5:
-		return "Level5"
-	case MiotV2FanLevelLevel6:
-		return "Level6"
-	case MiotV2FanLevelLevel7:
-		return "Level7"
-	default:
-		return fmt.Sprintf("unknown MiotV2FanLevel: %v", uint8(v))
-	}
+func (v FanLevelV) String() string {
+  switch v {
+  case FanLevelAuto:
+    return "Auto"
+  case FanLevelLevel1:
+    return "Level1"
+  case FanLevelLevel2:
+    return "Level2"
+  case FanLevelLevel3:
+    return "Level3"
+  case FanLevelLevel4:
+    return "Level4"
+  case FanLevelLevel5:
+    return "Level5"
+  case FanLevelLevel6:
+    return "Level6"
+  case FanLevelLevel7:
+    return "Level7"
+  default:
+    return fmt.Sprintf("unknown FanLevel: %v", uint8(v))
+  }
 }
-
-// MiotV2VerticalSwing Vertical Swing
-type MiotV2VerticalSwing bool
-
-// MiotV2Temperature Temperature
-type MiotV2Temperature float64
-
-// MiotV2RelativeHumidity Relative Humidity
-type MiotV2RelativeHumidity uint8
-
-// MiotV2Alarm Alarm
-type MiotV2Alarm bool
-
-// MiotV2Brightness Brightness
-type MiotV2Brightness uint8
-
+// VerticalSwingV Vertical Swing
+type VerticalSwingV bool
+// TemperatureV Temperature
+type TemperatureV float64
+// RelativeHumidityV Relative Humidity
+type RelativeHumidityV uint8
+// AlarmV Alarm
+type AlarmV bool
+// BrightnessV Brightness
+type BrightnessV uint8
 const (
-	MiotV2BrightnessAuto   MiotV2Brightness = 0
-	MiotV2BrightnessMedium MiotV2Brightness = 1
-	MiotV2BrightnessHigh   MiotV2Brightness = 2
+  BrightnessAuto BrightnessV = 0
+  BrightnessMedium BrightnessV = 1
+  BrightnessHigh BrightnessV = 2
 )
-
-func (v MiotV2Brightness) String() string {
-	switch v {
-	case MiotV2BrightnessAuto:
-		return "Auto"
-	case MiotV2BrightnessMedium:
-		return "Medium"
-	case MiotV2BrightnessHigh:
-		return "High"
-	default:
-		return fmt.Sprintf("unknown MiotV2Brightness: %v", uint8(v))
-	}
+func (v BrightnessV) String() string {
+  switch v {
+  case BrightnessAuto:
+    return "Auto"
+  case BrightnessMedium:
+    return "Medium"
+  case BrightnessHigh:
+    return "High"
+  default:
+    return fmt.Sprintf("unknown Brightness: %v", uint8(v))
+  }
 }
-
-// XiaomiElectricity 耗电量
-type XiaomiElectricity float64
-
-// XiaomiElecCount 耗电量本次计数
-type XiaomiElecCount uint16
-
-// XiaomiClean 自清洁开关
-type XiaomiClean string
-
-// XiaomiExamine 机组体检开关
-type XiaomiExamine string
-
-// XiaomiError 故障
-type XiaomiError string
-
-// XiaomiRunningDuration 累计运行时长
-type XiaomiRunningDuration float64
-
-// XiaomiFanPercent 风速百分比
-type XiaomiFanPercent uint8
-
-// XiaomiTimer timer
-type XiaomiTimer string
-
-// XiaomiHumidityRange humidity-range
-type XiaomiHumidityRange string
-
-// XiaomiTemperatureHumidity temperature-humidity
-type XiaomiTemperatureHumidity float64
-
-// XiaomiIotTemp iot-temp
-type XiaomiIotTemp float64
-
-// XiaomiTempCtrl temp-ctrl
-type XiaomiTempCtrl bool
-
-// XiaomiSmartSleepCtrl smart-sleep-ctrl
-type XiaomiSmartSleepCtrl bool
-
-// XiaomiIndoorPipeTemp indoor-pipe-temp
-type XiaomiIndoorPipeTemp float64
-
-// XiaomiIndoorFanSpeed indoor-fan-speed
-type XiaomiIndoorFanSpeed uint16
-
-// XiaomiRealHeaterSwitch real-heater-switch
-type XiaomiRealHeaterSwitch bool
-
-// XiaomiRealindoorFanLever realindoor-fan-lever
-type XiaomiRealindoorFanLever uint8
-
+// ElectricityV 耗电量
+type ElectricityV float64
+// ElecCountV 耗电量本次计数
+type ElecCountV uint16
+// CleanV 自清洁开关
+type CleanV string
+// ExamineV 机组体检开关
+type ExamineV string
+// ErrorV 故障
+type ErrorV string
+// RunningDurationV 累计运行时长
+type RunningDurationV float64
+// FanPercentV 风速百分比
+type FanPercentV uint8
+// TimerV timer
+type TimerV string
+// HumidityRangeV humidity-range
+type HumidityRangeV string
+// TemperatureHumidityV temperature-humidity
+type TemperatureHumidityV float64
+// IotTempV iot-temp
+type IotTempV float64
+// TempCtrlV temp-ctrl
+type TempCtrlV bool
+// SmartSleepCtrlV smart-sleep-ctrl
+type SmartSleepCtrlV bool
+// IndoorPipeTempV indoor-pipe-temp
+type IndoorPipeTempV float64
+// IndoorFanSpeedV indoor-fan-speed
+type IndoorFanSpeedV uint16
+// RealHeaterSwitchV real-heater-switch
+type RealHeaterSwitchV bool
+// RealindoorFanLeverV realindoor-fan-lever
+type RealindoorFanLeverV uint8
 const (
-	XiaomiRealindoorFanLeverLevel0 XiaomiRealindoorFanLever = 0
-	XiaomiRealindoorFanLeverLevel1 XiaomiRealindoorFanLever = 1
-	XiaomiRealindoorFanLeverLevel2 XiaomiRealindoorFanLever = 2
-	XiaomiRealindoorFanLeverLevel3 XiaomiRealindoorFanLever = 3
-	XiaomiRealindoorFanLeverLevel4 XiaomiRealindoorFanLever = 4
-	XiaomiRealindoorFanLeverLevel5 XiaomiRealindoorFanLever = 5
-	XiaomiRealindoorFanLeverLevel6 XiaomiRealindoorFanLever = 6
-	XiaomiRealindoorFanLeverLevel7 XiaomiRealindoorFanLever = 7
-	XiaomiRealindoorFanLeverLevel8 XiaomiRealindoorFanLever = 8
-	XiaomiRealindoorFanLeverLevel9 XiaomiRealindoorFanLever = 9
+  RealindoorFanLeverLevel0 RealindoorFanLeverV = 0
+  RealindoorFanLeverLevel1 RealindoorFanLeverV = 1
+  RealindoorFanLeverLevel2 RealindoorFanLeverV = 2
+  RealindoorFanLeverLevel3 RealindoorFanLeverV = 3
+  RealindoorFanLeverLevel4 RealindoorFanLeverV = 4
+  RealindoorFanLeverLevel5 RealindoorFanLeverV = 5
+  RealindoorFanLeverLevel6 RealindoorFanLeverV = 6
+  RealindoorFanLeverLevel7 RealindoorFanLeverV = 7
+  RealindoorFanLeverLevel8 RealindoorFanLeverV = 8
+  RealindoorFanLeverLevel9 RealindoorFanLeverV = 9
 )
-
-func (v XiaomiRealindoorFanLever) String() string {
-	switch v {
-	case XiaomiRealindoorFanLeverLevel0:
-		return "Level 0"
-	case XiaomiRealindoorFanLeverLevel1:
-		return "Level 1"
-	case XiaomiRealindoorFanLeverLevel2:
-		return "Level 2"
-	case XiaomiRealindoorFanLeverLevel3:
-		return "Level 3"
-	case XiaomiRealindoorFanLeverLevel4:
-		return "Level 4"
-	case XiaomiRealindoorFanLeverLevel5:
-		return "Level 5"
-	case XiaomiRealindoorFanLeverLevel6:
-		return "Level 6"
-	case XiaomiRealindoorFanLeverLevel7:
-		return "Level 7"
-	case XiaomiRealindoorFanLeverLevel8:
-		return "Level 8"
-	case XiaomiRealindoorFanLeverLevel9:
-		return "Level 9"
-	default:
-		return fmt.Sprintf("unknown XiaomiRealindoorFanLever: %v", uint8(v))
-	}
+func (v RealindoorFanLeverV) String() string {
+  switch v {
+  case RealindoorFanLeverLevel0:
+    return "Level 0"
+  case RealindoorFanLeverLevel1:
+    return "Level 1"
+  case RealindoorFanLeverLevel2:
+    return "Level 2"
+  case RealindoorFanLeverLevel3:
+    return "Level 3"
+  case RealindoorFanLeverLevel4:
+    return "Level 4"
+  case RealindoorFanLeverLevel5:
+    return "Level 5"
+  case RealindoorFanLeverLevel6:
+    return "Level 6"
+  case RealindoorFanLeverLevel7:
+    return "Level 7"
+  case RealindoorFanLeverLevel8:
+    return "Level 8"
+  case RealindoorFanLeverLevel9:
+    return "Level 9"
+  default:
+    return fmt.Sprintf("unknown RealindoorFanLever: %v", uint8(v))
+  }
 }
-
-// XiaomiOutdoorTemp outdoor-temp
-type XiaomiOutdoorTemp float64
-
-// XiaomiOutdoorPipeTemp outdoor-pipe-temp
-type XiaomiOutdoorPipeTemp float64
-
-// XiaomiOutdoorExhaustTemp outdoor-exhaust-temp
-type XiaomiOutdoorExhaustTemp float64
-
-// XiaomiOutdoorFanLever outdoor-fan-lever
-type XiaomiOutdoorFanLever uint8
-
+// OutdoorTempV outdoor-temp
+type OutdoorTempV float64
+// OutdoorPipeTempV outdoor-pipe-temp
+type OutdoorPipeTempV float64
+// OutdoorExhaustTempV outdoor-exhaust-temp
+type OutdoorExhaustTempV float64
+// OutdoorFanLeverV outdoor-fan-lever
+type OutdoorFanLeverV uint8
 const (
-	XiaomiOutdoorFanLeverLevel0 XiaomiOutdoorFanLever = 0
-	XiaomiOutdoorFanLeverLevel1 XiaomiOutdoorFanLever = 1
-	XiaomiOutdoorFanLeverLevel2 XiaomiOutdoorFanLever = 2
-	XiaomiOutdoorFanLeverLevel3 XiaomiOutdoorFanLever = 3
-	XiaomiOutdoorFanLeverLevel4 XiaomiOutdoorFanLever = 4
-	XiaomiOutdoorFanLeverLevel5 XiaomiOutdoorFanLever = 5
-	XiaomiOutdoorFanLeverLevel6 XiaomiOutdoorFanLever = 6
-	XiaomiOutdoorFanLeverLevel7 XiaomiOutdoorFanLever = 7
-	XiaomiOutdoorFanLeverLevel8 XiaomiOutdoorFanLever = 8
-	XiaomiOutdoorFanLeverLevel9 XiaomiOutdoorFanLever = 9
+  OutdoorFanLeverLevel0 OutdoorFanLeverV = 0
+  OutdoorFanLeverLevel1 OutdoorFanLeverV = 1
+  OutdoorFanLeverLevel2 OutdoorFanLeverV = 2
+  OutdoorFanLeverLevel3 OutdoorFanLeverV = 3
+  OutdoorFanLeverLevel4 OutdoorFanLeverV = 4
+  OutdoorFanLeverLevel5 OutdoorFanLeverV = 5
+  OutdoorFanLeverLevel6 OutdoorFanLeverV = 6
+  OutdoorFanLeverLevel7 OutdoorFanLeverV = 7
+  OutdoorFanLeverLevel8 OutdoorFanLeverV = 8
+  OutdoorFanLeverLevel9 OutdoorFanLeverV = 9
 )
-
-func (v XiaomiOutdoorFanLever) String() string {
-	switch v {
-	case XiaomiOutdoorFanLeverLevel0:
-		return "Level 0"
-	case XiaomiOutdoorFanLeverLevel1:
-		return "Level 1"
-	case XiaomiOutdoorFanLeverLevel2:
-		return "Level 2"
-	case XiaomiOutdoorFanLeverLevel3:
-		return "Level 3"
-	case XiaomiOutdoorFanLeverLevel4:
-		return "Level 4"
-	case XiaomiOutdoorFanLeverLevel5:
-		return "Level 5"
-	case XiaomiOutdoorFanLeverLevel6:
-		return "Level 6"
-	case XiaomiOutdoorFanLeverLevel7:
-		return "Level 7"
-	case XiaomiOutdoorFanLeverLevel8:
-		return "Level 8"
-	case XiaomiOutdoorFanLeverLevel9:
-		return "Level 9"
-	default:
-		return fmt.Sprintf("unknown XiaomiOutdoorFanLever: %v", uint8(v))
-	}
+func (v OutdoorFanLeverV) String() string {
+  switch v {
+  case OutdoorFanLeverLevel0:
+    return "Level 0"
+  case OutdoorFanLeverLevel1:
+    return "Level 1"
+  case OutdoorFanLeverLevel2:
+    return "Level 2"
+  case OutdoorFanLeverLevel3:
+    return "Level 3"
+  case OutdoorFanLeverLevel4:
+    return "Level 4"
+  case OutdoorFanLeverLevel5:
+    return "Level 5"
+  case OutdoorFanLeverLevel6:
+    return "Level 6"
+  case OutdoorFanLeverLevel7:
+    return "Level 7"
+  case OutdoorFanLeverLevel8:
+    return "Level 8"
+  case OutdoorFanLeverLevel9:
+    return "Level 9"
+  default:
+    return fmt.Sprintf("unknown OutdoorFanLever: %v", uint8(v))
+  }
 }
-
-// XiaomiCompressorFrequency compressor-frequency
-type XiaomiCompressorFrequency float64
-
-// XiaomiFourwayValveSwitch fourway-valve-switch
-type XiaomiFourwayValveSwitch bool
-
-// XiaomiOutdoorCurrent outdoor--current
-type XiaomiOutdoorCurrent float64
-
-// XiaomiOutdoorMVoltage outdoor-m-voltage
-type XiaomiOutdoorMVoltage float64
-
-// XiaomiExpansionValve expansion-valve
-type XiaomiExpansionValve uint16
-
-// XiaomiLongitudeLatitude longitude-latitude
-type XiaomiLongitudeLatitude string
-
-// XiaomiAmbientLight ambient-light
-type XiaomiAmbientLight uint32
-
-// XiaomiFaultValue fault-value
-type XiaomiFaultValue int16
-
+// CompressorFrequencyV compressor-frequency
+type CompressorFrequencyV float64
+// FourwayValveSwitchV fourway-valve-switch
+type FourwayValveSwitchV bool
+// OutdoorCurrentV outdoor--current
+type OutdoorCurrentV float64
+// OutdoorMVoltageV outdoor-m-voltage
+type OutdoorMVoltageV float64
+// ExpansionValveV expansion-valve
+type ExpansionValveV uint16
+// LongitudeLatitudeV longitude-latitude
+type LongitudeLatitudeV string
+// AmbientLightV ambient-light
+type AmbientLightV uint32
+// FaultValueV fault-value
+type FaultValueV int16
 const (
-	XiaomiFaultValueNoFailure XiaomiFaultValue = 0
-	XiaomiFaultValueF24       XiaomiFaultValue = 4
-	XiaomiFaultValueF32       XiaomiFaultValue = 5
-	XiaomiFaultValueP1        XiaomiFaultValue = 6
-	XiaomiFaultValueP21       XiaomiFaultValue = 7
-	XiaomiFaultValueP22       XiaomiFaultValue = 8
-	XiaomiFaultValueP23       XiaomiFaultValue = 9
-	XiaomiFaultValueP24       XiaomiFaultValue = 10
-	XiaomiFaultValueP25       XiaomiFaultValue = 11
-	XiaomiFaultValueP4        XiaomiFaultValue = 12
-	XiaomiFaultValueP5        XiaomiFaultValue = 13
-	XiaomiFaultValueP6        XiaomiFaultValue = 14
-	XiaomiFaultValueP8        XiaomiFaultValue = 15
-	XiaomiFaultValuePA        XiaomiFaultValue = 16
-	XiaomiFaultValuePC        XiaomiFaultValue = 17
-	XiaomiFaultValueU2        XiaomiFaultValue = 18
-	XiaomiFaultValueU3        XiaomiFaultValue = 19
-	XiaomiFaultValueU4        XiaomiFaultValue = 20
-	XiaomiFaultValueU5        XiaomiFaultValue = 21
-	XiaomiFaultValueU61       XiaomiFaultValue = 22
-	XiaomiFaultValueU62       XiaomiFaultValue = 23
-	XiaomiFaultValueU8        XiaomiFaultValue = 24
-	XiaomiFaultValueU0        XiaomiFaultValue = 25
-	XiaomiFaultValueC1        XiaomiFaultValue = 26
-	XiaomiFaultValueC2        XiaomiFaultValue = 27
-	XiaomiFaultValueC3        XiaomiFaultValue = 28
-	XiaomiFaultValueC4        XiaomiFaultValue = 29
-	XiaomiFaultValueC5        XiaomiFaultValue = 30
-	XiaomiFaultValueF24CLEAR  XiaomiFaultValue = -4
-	XiaomiFaultValueF32CLEAR  XiaomiFaultValue = -5
-	XiaomiFaultValueP1CLEAR   XiaomiFaultValue = -6
-	XiaomiFaultValueP21CLEAR  XiaomiFaultValue = -7
-	XiaomiFaultValueP22CLEAR  XiaomiFaultValue = -8
-	XiaomiFaultValueP23CLEAR  XiaomiFaultValue = -9
-	XiaomiFaultValueP24CLEAR  XiaomiFaultValue = -10
-	XiaomiFaultValueP25CLEAR  XiaomiFaultValue = -11
-	XiaomiFaultValueP4CLEAR   XiaomiFaultValue = -12
-	XiaomiFaultValueP5CLEAR   XiaomiFaultValue = -13
-	XiaomiFaultValueP6CLEAR   XiaomiFaultValue = -14
-	XiaomiFaultValueP8CLEAR   XiaomiFaultValue = -15
-	XiaomiFaultValuePACLEAR   XiaomiFaultValue = -16
-	XiaomiFaultValuePCCLEAR   XiaomiFaultValue = -17
-	XiaomiFaultValueU2CLEAR   XiaomiFaultValue = -18
-	XiaomiFaultValueU3CLEAR   XiaomiFaultValue = -19
-	XiaomiFaultValueU4CLEAR   XiaomiFaultValue = -20
-	XiaomiFaultValueU5CLEAR   XiaomiFaultValue = -21
-	XiaomiFaultValueU61CLEAR  XiaomiFaultValue = -22
-	XiaomiFaultValueU62CLEAR  XiaomiFaultValue = -23
-	XiaomiFaultValueU8CLEAR   XiaomiFaultValue = -24
-	XiaomiFaultValueU0CLEAR   XiaomiFaultValue = -25
-	XiaomiFaultValueC1CLEAR   XiaomiFaultValue = -26
-	XiaomiFaultValueC2CLEAR   XiaomiFaultValue = -27
-	XiaomiFaultValueC3CLEAR   XiaomiFaultValue = -28
-	XiaomiFaultValueC4CLEAR   XiaomiFaultValue = -29
-	XiaomiFaultValueC5CLEAR   XiaomiFaultValue = -30
+  FaultValueNoFailure FaultValueV = 0
+  FaultValueF24 FaultValueV = 4
+  FaultValueF32 FaultValueV = 5
+  FaultValueP1 FaultValueV = 6
+  FaultValueP21 FaultValueV = 7
+  FaultValueP22 FaultValueV = 8
+  FaultValueP23 FaultValueV = 9
+  FaultValueP24 FaultValueV = 10
+  FaultValueP25 FaultValueV = 11
+  FaultValueP4 FaultValueV = 12
+  FaultValueP5 FaultValueV = 13
+  FaultValueP6 FaultValueV = 14
+  FaultValueP8 FaultValueV = 15
+  FaultValuePA FaultValueV = 16
+  FaultValuePC FaultValueV = 17
+  FaultValueU2 FaultValueV = 18
+  FaultValueU3 FaultValueV = 19
+  FaultValueU4 FaultValueV = 20
+  FaultValueU5 FaultValueV = 21
+  FaultValueU61 FaultValueV = 22
+  FaultValueU62 FaultValueV = 23
+  FaultValueU8 FaultValueV = 24
+  FaultValueU0 FaultValueV = 25
+  FaultValueC1 FaultValueV = 26
+  FaultValueC2 FaultValueV = 27
+  FaultValueC3 FaultValueV = 28
+  FaultValueC4 FaultValueV = 29
+  FaultValueC5 FaultValueV = 30
+  FaultValueF24CLEAR FaultValueV = -4
+  FaultValueF32CLEAR FaultValueV = -5
+  FaultValueP1CLEAR FaultValueV = -6
+  FaultValueP21CLEAR FaultValueV = -7
+  FaultValueP22CLEAR FaultValueV = -8
+  FaultValueP23CLEAR FaultValueV = -9
+  FaultValueP24CLEAR FaultValueV = -10
+  FaultValueP25CLEAR FaultValueV = -11
+  FaultValueP4CLEAR FaultValueV = -12
+  FaultValueP5CLEAR FaultValueV = -13
+  FaultValueP6CLEAR FaultValueV = -14
+  FaultValueP8CLEAR FaultValueV = -15
+  FaultValuePACLEAR FaultValueV = -16
+  FaultValuePCCLEAR FaultValueV = -17
+  FaultValueU2CLEAR FaultValueV = -18
+  FaultValueU3CLEAR FaultValueV = -19
+  FaultValueU4CLEAR FaultValueV = -20
+  FaultValueU5CLEAR FaultValueV = -21
+  FaultValueU61CLEAR FaultValueV = -22
+  FaultValueU62CLEAR FaultValueV = -23
+  FaultValueU8CLEAR FaultValueV = -24
+  FaultValueU0CLEAR FaultValueV = -25
+  FaultValueC1CLEAR FaultValueV = -26
+  FaultValueC2CLEAR FaultValueV = -27
+  FaultValueC3CLEAR FaultValueV = -28
+  FaultValueC4CLEAR FaultValueV = -29
+  FaultValueC5CLEAR FaultValueV = -30
 )
-
-func (v XiaomiFaultValue) String() string {
-	switch v {
-	case XiaomiFaultValueNoFailure:
-		return "No Failure"
-	case XiaomiFaultValueF24:
-		return "F2.4"
-	case XiaomiFaultValueF32:
-		return "F3.2"
-	case XiaomiFaultValueP1:
-		return "P1"
-	case XiaomiFaultValueP21:
-		return "P2.1"
-	case XiaomiFaultValueP22:
-		return "P2.2"
-	case XiaomiFaultValueP23:
-		return "P2.3"
-	case XiaomiFaultValueP24:
-		return "P2.4"
-	case XiaomiFaultValueP25:
-		return "P2.5"
-	case XiaomiFaultValueP4:
-		return "P4"
-	case XiaomiFaultValueP5:
-		return "P5"
-	case XiaomiFaultValueP6:
-		return "P6"
-	case XiaomiFaultValueP8:
-		return "P8"
-	case XiaomiFaultValuePA:
-		return "PA"
-	case XiaomiFaultValuePC:
-		return "PC"
-	case XiaomiFaultValueU2:
-		return "U2"
-	case XiaomiFaultValueU3:
-		return "U3"
-	case XiaomiFaultValueU4:
-		return "U4"
-	case XiaomiFaultValueU5:
-		return "U5"
-	case XiaomiFaultValueU61:
-		return "U6.1"
-	case XiaomiFaultValueU62:
-		return "U6.2"
-	case XiaomiFaultValueU8:
-		return "U8"
-	case XiaomiFaultValueU0:
-		return "U0"
-	case XiaomiFaultValueC1:
-		return "C1"
-	case XiaomiFaultValueC2:
-		return "C2"
-	case XiaomiFaultValueC3:
-		return "C3"
-	case XiaomiFaultValueC4:
-		return "C4"
-	case XiaomiFaultValueC5:
-		return "C5"
-	case XiaomiFaultValueF24CLEAR:
-		return "F2.4  CLEAR"
-	case XiaomiFaultValueF32CLEAR:
-		return "F3.2 CLEAR"
-	case XiaomiFaultValueP1CLEAR:
-		return "P1 CLEAR"
-	case XiaomiFaultValueP21CLEAR:
-		return "P2.1 CLEAR"
-	case XiaomiFaultValueP22CLEAR:
-		return "P2.2  CLEAR"
-	case XiaomiFaultValueP23CLEAR:
-		return "P2.3 CLEAR"
-	case XiaomiFaultValueP24CLEAR:
-		return "P2.4 CLEAR"
-	case XiaomiFaultValueP25CLEAR:
-		return "P2.5 CLEAR"
-	case XiaomiFaultValueP4CLEAR:
-		return "P4 CLEAR"
-	case XiaomiFaultValueP5CLEAR:
-		return "P5 CLEAR"
-	case XiaomiFaultValueP6CLEAR:
-		return "P6 CLEAR"
-	case XiaomiFaultValueP8CLEAR:
-		return "P8 CLEAR"
-	case XiaomiFaultValuePACLEAR:
-		return "PA CLEAR"
-	case XiaomiFaultValuePCCLEAR:
-		return "PC CLEAR"
-	case XiaomiFaultValueU2CLEAR:
-		return "U2 CLEAR"
-	case XiaomiFaultValueU3CLEAR:
-		return "U3 CLEAR"
-	case XiaomiFaultValueU4CLEAR:
-		return "U4  CLEAR"
-	case XiaomiFaultValueU5CLEAR:
-		return "U5 CLEAR"
-	case XiaomiFaultValueU61CLEAR:
-		return "U6.1 CLEAR"
-	case XiaomiFaultValueU62CLEAR:
-		return "U6.2  CLEAR"
-	case XiaomiFaultValueU8CLEAR:
-		return "U8 CLEAR"
-	case XiaomiFaultValueU0CLEAR:
-		return "U0 CLEAR"
-	case XiaomiFaultValueC1CLEAR:
-		return "C1 CLEAR"
-	case XiaomiFaultValueC2CLEAR:
-		return "C2 CLEAR"
-	case XiaomiFaultValueC3CLEAR:
-		return "C3 CLEAR"
-	case XiaomiFaultValueC4CLEAR:
-		return "C4 CLEAR"
-	case XiaomiFaultValueC5CLEAR:
-		return "C5 CLEAR"
-	default:
-		return fmt.Sprintf("unknown XiaomiFaultValue: %v", int16(v))
-	}
+func (v FaultValueV) String() string {
+  switch v {
+  case FaultValueNoFailure:
+    return "No Failure"
+  case FaultValueF24:
+    return "F2.4"
+  case FaultValueF32:
+    return "F3.2"
+  case FaultValueP1:
+    return "P1"
+  case FaultValueP21:
+    return "P2.1"
+  case FaultValueP22:
+    return "P2.2"
+  case FaultValueP23:
+    return "P2.3"
+  case FaultValueP24:
+    return "P2.4"
+  case FaultValueP25:
+    return "P2.5"
+  case FaultValueP4:
+    return "P4"
+  case FaultValueP5:
+    return "P5"
+  case FaultValueP6:
+    return "P6"
+  case FaultValueP8:
+    return "P8"
+  case FaultValuePA:
+    return "PA"
+  case FaultValuePC:
+    return "PC"
+  case FaultValueU2:
+    return "U2"
+  case FaultValueU3:
+    return "U3"
+  case FaultValueU4:
+    return "U4"
+  case FaultValueU5:
+    return "U5"
+  case FaultValueU61:
+    return "U6.1"
+  case FaultValueU62:
+    return "U6.2"
+  case FaultValueU8:
+    return "U8"
+  case FaultValueU0:
+    return "U0"
+  case FaultValueC1:
+    return "C1"
+  case FaultValueC2:
+    return "C2"
+  case FaultValueC3:
+    return "C3"
+  case FaultValueC4:
+    return "C4"
+  case FaultValueC5:
+    return "C5"
+  case FaultValueF24CLEAR:
+    return "F2.4  CLEAR"
+  case FaultValueF32CLEAR:
+    return "F3.2 CLEAR"
+  case FaultValueP1CLEAR:
+    return "P1 CLEAR"
+  case FaultValueP21CLEAR:
+    return "P2.1 CLEAR"
+  case FaultValueP22CLEAR:
+    return "P2.2  CLEAR"
+  case FaultValueP23CLEAR:
+    return "P2.3 CLEAR"
+  case FaultValueP24CLEAR:
+    return "P2.4 CLEAR"
+  case FaultValueP25CLEAR:
+    return "P2.5 CLEAR"
+  case FaultValueP4CLEAR:
+    return "P4 CLEAR"
+  case FaultValueP5CLEAR:
+    return "P5 CLEAR"
+  case FaultValueP6CLEAR:
+    return "P6 CLEAR"
+  case FaultValueP8CLEAR:
+    return "P8 CLEAR"
+  case FaultValuePACLEAR:
+    return "PA CLEAR"
+  case FaultValuePCCLEAR:
+    return "PC CLEAR"
+  case FaultValueU2CLEAR:
+    return "U2 CLEAR"
+  case FaultValueU3CLEAR:
+    return "U3 CLEAR"
+  case FaultValueU4CLEAR:
+    return "U4  CLEAR"
+  case FaultValueU5CLEAR:
+    return "U5 CLEAR"
+  case FaultValueU61CLEAR:
+    return "U6.1 CLEAR"
+  case FaultValueU62CLEAR:
+    return "U6.2  CLEAR"
+  case FaultValueU8CLEAR:
+    return "U8 CLEAR"
+  case FaultValueU0CLEAR:
+    return "U0 CLEAR"
+  case FaultValueC1CLEAR:
+    return "C1 CLEAR"
+  case FaultValueC2CLEAR:
+    return "C2 CLEAR"
+  case FaultValueC3CLEAR:
+    return "C3 CLEAR"
+  case FaultValueC4CLEAR:
+    return "C4 CLEAR"
+  case FaultValueC5CLEAR:
+    return "C5 CLEAR"
+  default:
+    return fmt.Sprintf("unknown FaultValue: %v", int16(v))
+  }
 }

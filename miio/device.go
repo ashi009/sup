@@ -45,10 +45,10 @@ func ConenctDevice(addr *net.UDPAddr, token string) (*Device, error) {
 		pc:           newPayloadCipher(tk),
 		ongoingCalls: make(map[int]chan<- *callResponse),
 	}
-	if err := d.hello(); err != nil {
-		c.Close()
-		return nil, err
-	}
+	// if err := d.hello(); err != nil {
+	// 	c.Close()
+	// 	return nil, err
+	// }
 	go d.listenCallResponse()
 	return d, nil
 }

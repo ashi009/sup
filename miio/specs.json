@@ -1,5 +1,6 @@
 [
   {
+    "//": "https://home.miot-spec.com/spec/xiaomi.tv.esh1",
     "type": "urn:miot-spec-v2:device:television:0000A010:xiaomi-esh1:2",
     "description": "Television",
     "services": [

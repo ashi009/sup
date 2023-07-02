@@ -25,132 +25,132 @@ func init() {
 }
 // DeviceInformationManufacturer Device Manufacturer
 type DeviceInformationManufacturer struct {
-  V MiotV2Manufacturer
+  V ManufacturerV
   Err error // Output only
 }
 // DeviceInformationModel Device Model
 type DeviceInformationModel struct {
-  V MiotV2Model
+  V ModelV
   Err error // Output only
 }
 // DeviceInformationSerialNumber Device ID
 type DeviceInformationSerialNumber struct {
-  V MiotV2SerialNumber
+  V SerialNumberV
   Err error // Output only
 }
 // DeviceInformationFirmwareRevision Current Firmware Version
 type DeviceInformationFirmwareRevision struct {
-  V MiotV2FirmwareRevision
+  V FirmwareRevisionV
   Err error // Output only
 }
 // DeviceInformationSerialNo Serial Number
 type DeviceInformationSerialNo struct {
-  V MiotV2SerialNo
+  V SerialNoV
   Err error // Output only
 }
 // TelevisionInputControl TV Input Control
 type TelevisionInputControl struct {
-  V MiotV2InputControl
+  V InputControlV
   Err error // Output only
 }
 // TelevisionSleepMode Sleep Mode
 type TelevisionSleepMode struct {
-  V MiotV2SleepMode
+  V SleepModeV
   Err error // Output only
 }
 // SpeakerVolume Volume
 type SpeakerVolume struct {
-  V MiotV2Volume
+  V VolumeV
   Err error // Output only
 }
 // SpeakerMute Mute
 type SpeakerMute struct {
-  V MiotV2Mute
+  V MuteV
   Err error // Output only
 }
 // MessageRouterRequest Request
 type MessageRouterRequest struct {
-  V MiotV2Request
+  V RequestV
   Err error // Output only
 }
 // MessageRouterResponse Response
 type MessageRouterResponse struct {
-  V MiotV2Response
+  V ResponseV
   Err error // Output only
 }
 // NoDisturbNoDisturb No Disturb
 type NoDisturbNoDisturb struct {
-  V MiotV2NoDisturb
+  V NoDisturbV
   Err error // Output only
 }
 // NoDisturbEnableTimePeriod Enable Time Period
 type NoDisturbEnableTimePeriod struct {
-  V MiotV2EnableTimePeriod
+  V EnableTimePeriodV
   Err error // Output only
 }
 // RemoteControlStatePlaying state-playing
 type RemoteControlStatePlaying struct {
-  V XiaomiStatePlaying
+  V StatePlayingV
   Err error // Output only
 }
 // SpeakerModeIsOn is-on
 type SpeakerModeIsOn struct {
-  V XiaomiIsOn
+  V IsOnV
   Err error // Output only
 }
-// MiotV2Manufacturer Device Manufacturer
-type MiotV2Manufacturer string
-// MiotV2Model Device Model
-type MiotV2Model string
-// MiotV2SerialNumber Device ID
-type MiotV2SerialNumber string
-// MiotV2FirmwareRevision Current Firmware Version
-type MiotV2FirmwareRevision string
-// MiotV2SerialNo Serial Number
-type MiotV2SerialNo string
-// MiotV2InputControl TV Input Control
-type MiotV2InputControl uint8
+// ManufacturerV Device Manufacturer
+type ManufacturerV string
+// ModelV Device Model
+type ModelV string
+// SerialNumberV Device ID
+type SerialNumberV string
+// FirmwareRevisionV Current Firmware Version
+type FirmwareRevisionV string
+// SerialNoV Serial Number
+type SerialNoV string
+// InputControlV TV Input Control
+type InputControlV uint8
 const (
-  MiotV2InputControlATV MiotV2InputControl = 1
-  MiotV2InputControlDTV MiotV2InputControl = 2
-  MiotV2InputControlAV MiotV2InputControl = 3
-  MiotV2InputControlHDMI1 MiotV2InputControl = 4
-  MiotV2InputControlHDMI2 MiotV2InputControl = 5
-  MiotV2InputControlHDMI3 MiotV2InputControl = 6
+  InputControlATV InputControlV = 1
+  InputControlDTV InputControlV = 2
+  InputControlAV InputControlV = 3
+  InputControlHDMI1 InputControlV = 4
+  InputControlHDMI2 InputControlV = 5
+  InputControlHDMI3 InputControlV = 6
 )
-func (v MiotV2InputControl) String() string {
+func (v InputControlV) String() string {
   switch v {
-  case MiotV2InputControlATV:
+  case InputControlATV:
     return "ATV"
-  case MiotV2InputControlDTV:
+  case InputControlDTV:
     return "DTV"
-  case MiotV2InputControlAV:
+  case InputControlAV:
     return "AV"
-  case MiotV2InputControlHDMI1:
+  case InputControlHDMI1:
     return "HDMI 1"
-  case MiotV2InputControlHDMI2:
+  case InputControlHDMI2:
     return "HDMI 2"
-  case MiotV2InputControlHDMI3:
+  case InputControlHDMI3:
     return "HDMI 3"
   default:
-    return fmt.Sprintf("unknown MiotV2InputControl: %v", uint8(v))
+    return fmt.Sprintf("unknown InputControl: %v", uint8(v))
   }
 }
-// MiotV2SleepMode Sleep Mode
-type MiotV2SleepMode bool
-// MiotV2Volume Volume
-type MiotV2Volume uint8
-// MiotV2Mute Mute
-type MiotV2Mute bool
-// MiotV2Request Request
-type MiotV2Request string
-// MiotV2Response Response
-type MiotV2Response string
-// MiotV2NoDisturb No Disturb
-type MiotV2NoDisturb bool
-// MiotV2EnableTimePeriod Enable Time Period
-type MiotV2EnableTimePeriod string
-// XiaomiStatePlaying state-playing
-type XiaomiStatePlaying bool
-// XiaomiIsOn is-on
-type XiaomiIsOn bool
+// SleepModeV Sleep Mode
+type SleepModeV bool
+// VolumeV Volume
+type VolumeV uint8
+// MuteV Mute
+type MuteV bool
+// RequestV Request
+type RequestV string
+// ResponseV Response
+type ResponseV string
+// NoDisturbV No Disturb
+type NoDisturbV bool
+// EnableTimePeriodV Enable Time Period
+type EnableTimePeriodV string
+// StatePlayingV state-playing
+type StatePlayingV bool
+// IsOnV is-on
+type IsOnV bool

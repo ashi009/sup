@@ -20,83 +20,83 @@ func init() {
 }
 // DeviceInformationManufacturer Device Manufacturer
 type DeviceInformationManufacturer struct {
-  V MiotV2Manufacturer
+  V ManufacturerV
   Err error // Output only
 }
 // DeviceInformationModel Device Model
 type DeviceInformationModel struct {
-  V MiotV2Model
+  V ModelV
   Err error // Output only
 }
 // DeviceInformationSerialNumber Device Serial Number
 type DeviceInformationSerialNumber struct {
-  V MiotV2SerialNumber
+  V SerialNumberV
   Err error // Output only
 }
 // DeviceInformationFirmwareRevision Current Firmware Version
 type DeviceInformationFirmwareRevision struct {
-  V MiotV2FirmwareRevision
+  V FirmwareRevisionV
   Err error // Output only
 }
 // LightOn Switch Status
 type LightOn struct {
-  V MiotV2On
+  V OnV
   Err error // Output only
 }
 // LightMode Mode
 type LightMode struct {
-  V MiotV2Mode
+  V ModeV
   Err error // Output only
 }
 // LightBrightness Brightness
 type LightBrightness struct {
-  V MiotV2Brightness
+  V BrightnessV
   Err error // Output only
 }
 // PTCBathHeaterMode Mode
 type PTCBathHeaterMode struct {
-  V MiotV2Mode
+  V ModeV
   Err error // Output only
 }
 // PTCBathHeaterTargetTemperature Target Temperature
 type PTCBathHeaterTargetTemperature struct {
-  V MiotV2TargetTemperature
+  V TargetTemperatureV
   Err error // Output only
 }
 // PTCBathHeaterTemperature Temperature
 type PTCBathHeaterTemperature struct {
-  V MiotV2Temperature
+  V TemperatureV
   Err error // Output only
 }
-// MiotV2Manufacturer Device Manufacturer
-type MiotV2Manufacturer string
-// MiotV2Model Device Model
-type MiotV2Model string
-// MiotV2SerialNumber Device Serial Number
-type MiotV2SerialNumber string
-// MiotV2FirmwareRevision Current Firmware Version
-type MiotV2FirmwareRevision string
-// MiotV2On Switch Status
-type MiotV2On bool
-// MiotV2Mode Mode
-type MiotV2Mode uint8
+// ManufacturerV Device Manufacturer
+type ManufacturerV string
+// ModelV Device Model
+type ModelV string
+// SerialNumberV Device Serial Number
+type SerialNumberV string
+// FirmwareRevisionV Current Firmware Version
+type FirmwareRevisionV string
+// OnV Switch Status
+type OnV bool
+// ModeV Mode
+type ModeV uint8
 const (
-  MiotV2ModeDay MiotV2Mode = 0
-  MiotV2ModeNight MiotV2Mode = 1
+  ModeDay ModeV = 0
+  ModeNight ModeV = 1
 )
-func (v MiotV2Mode) String() string {
+func (v ModeV) String() string {
   switch v {
-  case MiotV2ModeDay:
+  case ModeDay:
     return "Day"
-  case MiotV2ModeNight:
+  case ModeNight:
     return "Night"
   default:
-    return fmt.Sprintf("unknown MiotV2Mode: %v", uint8(v))
+    return fmt.Sprintf("unknown Mode: %v", uint8(v))
   }
 }
-// MiotV2Brightness Brightness
-type MiotV2Brightness uint8
-// MiotV2TargetTemperature Target Temperature
-type MiotV2TargetTemperature uint8
-// MiotV2Temperature Temperature
-type MiotV2Temperature uint8
+// BrightnessV Brightness
+type BrightnessV uint8
+// TargetTemperatureV Target Temperature
+type TargetTemperatureV uint8
+// TemperatureV Temperature
+type TemperatureV uint8

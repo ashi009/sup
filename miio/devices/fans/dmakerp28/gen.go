@@ -37,302 +37,302 @@ func init() {
 }
 // DeviceInformationManufacturer Device Manufacturer
 type DeviceInformationManufacturer struct {
-  V MiotV2Manufacturer
+  V ManufacturerV
   Err error // Output only
 }
 // DeviceInformationModel Device Model
 type DeviceInformationModel struct {
-  V MiotV2Model
+  V ModelV
   Err error // Output only
 }
 // DeviceInformationSerialNumber Device Serial Number
 type DeviceInformationSerialNumber struct {
-  V MiotV2SerialNumber
+  V SerialNumberV
   Err error // Output only
 }
 // DeviceInformationFirmwareRevision Current Firmware Version
 type DeviceInformationFirmwareRevision struct {
-  V MiotV2FirmwareRevision
+  V FirmwareRevisionV
   Err error // Output only
 }
 // FanOn Switch Status
 type FanOn struct {
-  V MiotV2On
+  V OnV
   Err error // Output only
 }
 // FanFanLevel Gear Fan Level 
 type FanFanLevel struct {
-  V MiotV2FanLevel
+  V FanLevelV
   Err error // Output only
 }
 // FanMode Mode
 type FanMode struct {
-  V MiotV2Mode
+  V ModeV
   Err error // Output only
 }
 // FanHorizontalSwing Horizontal Swing
 type FanHorizontalSwing struct {
-  V MiotV2HorizontalSwing
+  V HorizontalSwingV
   Err error // Output only
 }
 // FanHorizontalSwingIncludedAngle Horizontal Swing Included Angle
 type FanHorizontalSwingIncludedAngle struct {
-  V MiotV2HorizontalSwingIncludedAngle
+  V HorizontalSwingIncludedAngleV
   Err error // Output only
 }
 // FanVerticalSwing Vertical Swing
 type FanVerticalSwing struct {
-  V MiotV2VerticalSwing
+  V VerticalSwingV
   Err error // Output only
 }
 // FanVerticalSwingIncludedAngle Vertical Swing Included Angle
 type FanVerticalSwingIncludedAngle struct {
-  V MiotV2VerticalSwingIncludedAngle
+  V VerticalSwingIncludedAngleV
   Err error // Output only
 }
 // IndicatorLightOn Switch Status
 type IndicatorLightOn struct {
-  V MiotV2On
+  V OnV
   Err error // Output only
 }
 // AlarmAlarm Alarm
 type AlarmAlarm struct {
-  V MiotV2Alarm
+  V AlarmV
   Err error // Output only
 }
 // PhysicalControlLockedPhysicalControlsLocked Physical Control Locked
 type PhysicalControlLockedPhysicalControlsLocked struct {
-  V MiotV2PhysicalControlsLocked
+  V PhysicalControlsLockedV
   Err error // Output only
 }
 // EnvironmentTemperature Temperature
 type EnvironmentTemperature struct {
-  V MiotV2Temperature
+  V TemperatureV
   Err error // Output only
 }
 // EnvironmentRelativeHumidity Relative Humidity
 type EnvironmentRelativeHumidity struct {
-  V MiotV2RelativeHumidity
+  V RelativeHumidityV
   Err error // Output only
 }
 // OffDelayTimeOffDelayTime off-delay-time
 type OffDelayTimeOffDelayTime struct {
-  V DmakerOffDelayTime
+  V OffDelayTimeV
   Err error // Output only
 }
 // DmServiceSpeedLevel speed-level
 type DmServiceSpeedLevel struct {
-  V DmakerSpeedLevel
+  V SpeedLevelV
   Err error // Output only
 }
 // DmServiceSwingUpdownManual swing-updown-manual
 type DmServiceSwingUpdownManual struct {
-  V DmakerSwingUpdownManual
+  V SwingUpdownManualV
   Err error // Output only
 }
 // DmServiceSwingLrManual swing-lr-manual
 type DmServiceSwingLrManual struct {
-  V DmakerSwingLrManual
+  V SwingLrManualV
   Err error // Output only
 }
 // DmServiceStartLeft start-left
 type DmServiceStartLeft struct {
-  V DmakerStartLeft
+  V StartLeftV
   Err error // Output only
 }
 // DmServiceStartRight start-right
 type DmServiceStartRight struct {
-  V DmakerStartRight
+  V StartRightV
   Err error // Output only
 }
 // DmServiceStartUp start-up
 type DmServiceStartUp struct {
-  V DmakerStartUp
+  V StartUpV
   Err error // Output only
 }
 // DmServiceStartDown start-down
 type DmServiceStartDown struct {
-  V DmakerStartDown
+  V StartDownV
   Err error // Output only
 }
 // DmServiceSwingAll swing-all
 type DmServiceSwingAll struct {
-  V DmakerSwingAll
+  V SwingAllV
   Err error // Output only
 }
 // DmServiceBackToCenter back-to-center
 type DmServiceBackToCenter struct {
-  V DmakerBackToCenter
+  V BackToCenterV
   Err error // Output only
 }
 // DmServiceOffToCenter off-to-center
 type DmServiceOffToCenter struct {
-  V DmakerOffToCenter
+  V OffToCenterV
   Err error // Output only
 }
-// MiotV2Manufacturer Device Manufacturer
-type MiotV2Manufacturer string
-// MiotV2Model Device Model
-type MiotV2Model string
-// MiotV2SerialNumber Device Serial Number
-type MiotV2SerialNumber string
-// MiotV2FirmwareRevision Current Firmware Version
-type MiotV2FirmwareRevision string
-// MiotV2On Switch Status
-type MiotV2On bool
-// MiotV2FanLevel Gear Fan Level 
-type MiotV2FanLevel uint8
+// ManufacturerV Device Manufacturer
+type ManufacturerV string
+// ModelV Device Model
+type ModelV string
+// SerialNumberV Device Serial Number
+type SerialNumberV string
+// FirmwareRevisionV Current Firmware Version
+type FirmwareRevisionV string
+// OnV Switch Status
+type OnV bool
+// FanLevelV Gear Fan Level 
+type FanLevelV uint8
 const (
-  MiotV2FanLevelLevel1 MiotV2FanLevel = 1
-  MiotV2FanLevelLevel2 MiotV2FanLevel = 2
-  MiotV2FanLevelLevel3 MiotV2FanLevel = 3
-  MiotV2FanLevelLevel4 MiotV2FanLevel = 4
+  FanLevelLevel1 FanLevelV = 1
+  FanLevelLevel2 FanLevelV = 2
+  FanLevelLevel3 FanLevelV = 3
+  FanLevelLevel4 FanLevelV = 4
 )
-func (v MiotV2FanLevel) String() string {
+func (v FanLevelV) String() string {
   switch v {
-  case MiotV2FanLevelLevel1:
+  case FanLevelLevel1:
     return "Level1"
-  case MiotV2FanLevelLevel2:
+  case FanLevelLevel2:
     return "Level2"
-  case MiotV2FanLevelLevel3:
+  case FanLevelLevel3:
     return "Level3"
-  case MiotV2FanLevelLevel4:
+  case FanLevelLevel4:
     return "Level4"
   default:
-    return fmt.Sprintf("unknown MiotV2FanLevel: %v", uint8(v))
+    return fmt.Sprintf("unknown FanLevel: %v", uint8(v))
   }
 }
-// MiotV2Mode Mode
-type MiotV2Mode uint8
+// ModeV Mode
+type ModeV uint8
 const (
-  MiotV2ModeStraightWind MiotV2Mode = 0
-  MiotV2ModeNaturalWind MiotV2Mode = 1
-  MiotV2ModeSmart MiotV2Mode = 2
-  MiotV2ModeSleep MiotV2Mode = 3
+  ModeStraightWind ModeV = 0
+  ModeNaturalWind ModeV = 1
+  ModeSmart ModeV = 2
+  ModeSleep ModeV = 3
 )
-func (v MiotV2Mode) String() string {
+func (v ModeV) String() string {
   switch v {
-  case MiotV2ModeStraightWind:
+  case ModeStraightWind:
     return "Straight Wind"
-  case MiotV2ModeNaturalWind:
+  case ModeNaturalWind:
     return "Natural Wind"
-  case MiotV2ModeSmart:
+  case ModeSmart:
     return "Smart"
-  case MiotV2ModeSleep:
+  case ModeSleep:
     return "Sleep"
   default:
-    return fmt.Sprintf("unknown MiotV2Mode: %v", uint8(v))
+    return fmt.Sprintf("unknown Mode: %v", uint8(v))
   }
 }
-// MiotV2HorizontalSwing Horizontal Swing
-type MiotV2HorizontalSwing bool
-// MiotV2HorizontalSwingIncludedAngle Horizontal Swing Included Angle
-type MiotV2HorizontalSwingIncludedAngle uint16
+// HorizontalSwingV Horizontal Swing
+type HorizontalSwingV bool
+// HorizontalSwingIncludedAngleV Horizontal Swing Included Angle
+type HorizontalSwingIncludedAngleV uint16
 const (
-  MiotV2HorizontalSwingIncludedAngle30 MiotV2HorizontalSwingIncludedAngle = 30
-  MiotV2HorizontalSwingIncludedAngle60 MiotV2HorizontalSwingIncludedAngle = 60
-  MiotV2HorizontalSwingIncludedAngle90 MiotV2HorizontalSwingIncludedAngle = 90
-  MiotV2HorizontalSwingIncludedAngle120 MiotV2HorizontalSwingIncludedAngle = 120
-  MiotV2HorizontalSwingIncludedAngle150 MiotV2HorizontalSwingIncludedAngle = 150
+  HorizontalSwingIncludedAngle30 HorizontalSwingIncludedAngleV = 30
+  HorizontalSwingIncludedAngle60 HorizontalSwingIncludedAngleV = 60
+  HorizontalSwingIncludedAngle90 HorizontalSwingIncludedAngleV = 90
+  HorizontalSwingIncludedAngle120 HorizontalSwingIncludedAngleV = 120
+  HorizontalSwingIncludedAngle150 HorizontalSwingIncludedAngleV = 150
 )
-func (v MiotV2HorizontalSwingIncludedAngle) String() string {
+func (v HorizontalSwingIncludedAngleV) String() string {
   switch v {
-  case MiotV2HorizontalSwingIncludedAngle30:
+  case HorizontalSwingIncludedAngle30:
     return "30"
-  case MiotV2HorizontalSwingIncludedAngle60:
+  case HorizontalSwingIncludedAngle60:
     return "60"
-  case MiotV2HorizontalSwingIncludedAngle90:
+  case HorizontalSwingIncludedAngle90:
     return "90"
-  case MiotV2HorizontalSwingIncludedAngle120:
+  case HorizontalSwingIncludedAngle120:
     return "120"
-  case MiotV2HorizontalSwingIncludedAngle150:
+  case HorizontalSwingIncludedAngle150:
     return "150"
   default:
-    return fmt.Sprintf("unknown MiotV2HorizontalSwingIncludedAngle: %v", uint16(v))
+    return fmt.Sprintf("unknown HorizontalSwingIncludedAngle: %v", uint16(v))
   }
 }
-// MiotV2VerticalSwing Vertical Swing
-type MiotV2VerticalSwing bool
-// MiotV2VerticalSwingIncludedAngle Vertical Swing Included Angle
-type MiotV2VerticalSwingIncludedAngle uint8
+// VerticalSwingV Vertical Swing
+type VerticalSwingV bool
+// VerticalSwingIncludedAngleV Vertical Swing Included Angle
+type VerticalSwingIncludedAngleV uint8
 const (
-  MiotV2VerticalSwingIncludedAngle30 MiotV2VerticalSwingIncludedAngle = 30
-  MiotV2VerticalSwingIncludedAngle60 MiotV2VerticalSwingIncludedAngle = 60
-  MiotV2VerticalSwingIncludedAngle90 MiotV2VerticalSwingIncludedAngle = 90
+  VerticalSwingIncludedAngle30 VerticalSwingIncludedAngleV = 30
+  VerticalSwingIncludedAngle60 VerticalSwingIncludedAngleV = 60
+  VerticalSwingIncludedAngle90 VerticalSwingIncludedAngleV = 90
 )
-func (v MiotV2VerticalSwingIncludedAngle) String() string {
+func (v VerticalSwingIncludedAngleV) String() string {
   switch v {
-  case MiotV2VerticalSwingIncludedAngle30:
+  case VerticalSwingIncludedAngle30:
     return "30"
-  case MiotV2VerticalSwingIncludedAngle60:
+  case VerticalSwingIncludedAngle60:
     return "60"
-  case MiotV2VerticalSwingIncludedAngle90:
+  case VerticalSwingIncludedAngle90:
     return "90"
   default:
-    return fmt.Sprintf("unknown MiotV2VerticalSwingIncludedAngle: %v", uint8(v))
+    return fmt.Sprintf("unknown VerticalSwingIncludedAngle: %v", uint8(v))
   }
 }
-// MiotV2Alarm Alarm
-type MiotV2Alarm bool
-// MiotV2PhysicalControlsLocked Physical Control Locked
-type MiotV2PhysicalControlsLocked bool
-// MiotV2Temperature Temperature
-type MiotV2Temperature float64
-// MiotV2RelativeHumidity Relative Humidity
-type MiotV2RelativeHumidity uint8
-// DmakerOffDelayTime off-delay-time
-type DmakerOffDelayTime uint16
-// DmakerSpeedLevel speed-level
-type DmakerSpeedLevel uint8
-// DmakerSwingUpdownManual swing-updown-manual
-type DmakerSwingUpdownManual uint8
+// AlarmV Alarm
+type AlarmV bool
+// PhysicalControlsLockedV Physical Control Locked
+type PhysicalControlsLockedV bool
+// TemperatureV Temperature
+type TemperatureV float64
+// RelativeHumidityV Relative Humidity
+type RelativeHumidityV uint8
+// OffDelayTimeV off-delay-time
+type OffDelayTimeV uint16
+// SpeedLevelV speed-level
+type SpeedLevelV uint8
+// SwingUpdownManualV swing-updown-manual
+type SwingUpdownManualV uint8
 const (
-  DmakerSwingUpdownManualNONE DmakerSwingUpdownManual = 0
-  DmakerSwingUpdownManualUP DmakerSwingUpdownManual = 1
-  DmakerSwingUpdownManualDOWN DmakerSwingUpdownManual = 2
+  SwingUpdownManualNONE SwingUpdownManualV = 0
+  SwingUpdownManualUP SwingUpdownManualV = 1
+  SwingUpdownManualDOWN SwingUpdownManualV = 2
 )
-func (v DmakerSwingUpdownManual) String() string {
+func (v SwingUpdownManualV) String() string {
   switch v {
-  case DmakerSwingUpdownManualNONE:
+  case SwingUpdownManualNONE:
     return "NONE"
-  case DmakerSwingUpdownManualUP:
+  case SwingUpdownManualUP:
     return "UP"
-  case DmakerSwingUpdownManualDOWN:
+  case SwingUpdownManualDOWN:
     return "DOWN"
   default:
-    return fmt.Sprintf("unknown DmakerSwingUpdownManual: %v", uint8(v))
+    return fmt.Sprintf("unknown SwingUpdownManual: %v", uint8(v))
   }
 }
-// DmakerSwingLrManual swing-lr-manual
-type DmakerSwingLrManual uint8
+// SwingLrManualV swing-lr-manual
+type SwingLrManualV uint8
 const (
-  DmakerSwingLrManualNONE DmakerSwingLrManual = 0
-  DmakerSwingLrManualLEFT DmakerSwingLrManual = 1
-  DmakerSwingLrManualRIGHT DmakerSwingLrManual = 2
+  SwingLrManualNONE SwingLrManualV = 0
+  SwingLrManualLEFT SwingLrManualV = 1
+  SwingLrManualRIGHT SwingLrManualV = 2
 )
-func (v DmakerSwingLrManual) String() string {
+func (v SwingLrManualV) String() string {
   switch v {
-  case DmakerSwingLrManualNONE:
+  case SwingLrManualNONE:
     return "NONE"
-  case DmakerSwingLrManualLEFT:
+  case SwingLrManualLEFT:
     return "LEFT"
-  case DmakerSwingLrManualRIGHT:
+  case SwingLrManualRIGHT:
     return "RIGHT"
   default:
-    return fmt.Sprintf("unknown DmakerSwingLrManual: %v", uint8(v))
+    return fmt.Sprintf("unknown SwingLrManual: %v", uint8(v))
   }
 }
-// DmakerStartLeft start-left
-type DmakerStartLeft bool
-// DmakerStartRight start-right
-type DmakerStartRight bool
-// DmakerStartUp start-up
-type DmakerStartUp bool
-// DmakerStartDown start-down
-type DmakerStartDown bool
-// DmakerSwingAll swing-all
-type DmakerSwingAll bool
-// DmakerBackToCenter back-to-center
-type DmakerBackToCenter bool
-// DmakerOffToCenter off-to-center
-type DmakerOffToCenter bool
+// StartLeftV start-left
+type StartLeftV bool
+// StartRightV start-right
+type StartRightV bool
+// StartUpV start-up
+type StartUpV bool
+// StartDownV start-down
+type StartDownV bool
+// SwingAllV swing-all
+type SwingAllV bool
+// BackToCenterV back-to-center
+type BackToCenterV bool
+// OffToCenterV off-to-center
+type OffToCenterV bool

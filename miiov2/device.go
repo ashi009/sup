@@ -61,8 +61,8 @@ func (d *Device) hello() error {
 	if err != nil {
 		return err
 	}
-	d.id = p.Header().GetDeviceID()
-	d.clockSkew = int64(p.Header().GetTimestamp()) - now().Unix()
+	d.id = p.Header().DeviceID()
+	d.clockSkew = int64(p.Header().Timestamp()) - now().Unix()
 	return nil
 }
 

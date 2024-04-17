@@ -1,6 +1,3 @@
-// Package miio implements miio protocol based on:
-// - https://github.com/OpenMiHome/mihome-binary-protocol/blob/master/doc/PROTOCOL.md
-// - https://sspai.com/post/68306
 package miio
 
 import (
@@ -26,7 +23,7 @@ func (h *header) SetPayloadSize(l uint16) {
 	binary.BigEndian.PutUint16(h[2:4], l+headerSize)
 }
 
-func (h *header) SetUnknonw1(v uint32) {
+func (h *header) SetUnknown1(v uint32) {
 	binary.BigEndian.PutUint32(h[4:8], v)
 }
 
@@ -49,35 +46,35 @@ func (h *header) SetChecksum(c [16]byte) {
 }
 
 func (h *header) String() string {
-	return fmt.Sprintf("PayloadSize:%d Unknown:%d Did:%d Stamp:%d",
-		h.GetPayloadSize(), h.GetUnknown1(), h.GetDeviceID(), h.GetTimestamp())
+	return fmt.Sprintf("PayloadSize:%d Unknown1:%d Did:%d Stamp:%d",
+		h.PayloadSize(), h.Unknown1(), h.DeviceID(), h.Timestamp())
 }
 
-func (h *header) GetMagic() uint16 {
+func (h *header) Magic() uint16 {
 	return binary.BigEndian.Uint16(h[0:2])
 }
 
-func (h *header) getSize() uint16 {
+func (h *header) size() uint16 {
 	return binary.BigEndian.Uint16(h[2:4])
 }
 
-func (h *header) GetPayloadSize() uint16 {
-	return h.getSize() - headerSize
+func (h *header) PayloadSize() uint16 {
+	return h.size() - headerSize
 }
 
-func (h *header) GetUnknown1() uint32 {
+func (h *header) Unknown1() uint32 {
 	return binary.BigEndian.Uint32(h[4:8])
 }
 
-func (h *header) GetDeviceID() uint32 {
+func (h *header) DeviceID() uint32 {
 	return binary.BigEndian.Uint32(h[8:12])
 }
 
-func (h *header) GetTimestamp() uint32 {
+func (h *header) Timestamp() uint32 {
 	return binary.BigEndian.Uint32(h[12:16])
 }
 
-func (h *header) GetChecksum() (res [16]byte) {
+func (h *header) Checksum() (res [16]byte) {
 	copy(res[:], h[16:32])
 	return
 }
@@ -94,10 +91,10 @@ func (p packet) Verify() error {
 	if len(p) < headerSize {
 		return errShort
 	}
-	if p.Header().GetMagic() != magic {
+	if p.Header().Magic() != magic {
 		return errMagicMismatch
 	}
-	if p.Header().getSize() != uint16(len(p)) {
+	if p.Header().size() != uint16(len(p)) {
 		return errSizeMismatch
 	}
 	return nil
@@ -112,13 +109,13 @@ func (p packet) Header() *header {
 }
 
 func (p packet) Payload() []byte {
-	return p[headerSize:][:p.Header().GetPayloadSize()]
+	return p[headerSize:][:p.Header().PayloadSize()]
 }
 
 func (p *packet) SetPayload(payload []byte) {
 	fmt.Println(len(payload))
 	p.Header().SetPayloadSize(uint16(len(payload)))
-	*p = (*p)[:p.Header().getSize()]
+	*p = (*p)[:p.Header().size()]
 	copy(p.Payload(), payload)
 }
 
@@ -130,7 +127,7 @@ func (p packet) SignPayload(token [16]byte) {
 
 func (p packet) VerifyPayload(token [16]byte) error {
 	h := p.Header()
-	want := h.GetChecksum()
+	want := h.Checksum()
 	h.SetChecksum(token)
 	if got := md5.Sum(p); got != want {
 		return fmt.Errorf("checksum mismatch: got %x, want %x", got, want)
